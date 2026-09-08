@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig( {
-  site: "works.c12z.io",
+  site: "https://works.c12z.io",
   output: 'static',
   integrations: [ mdx(), sitemap() ],
   adapter: vercel( {
