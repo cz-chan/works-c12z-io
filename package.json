@@ -7,7 +7,9 @@
 	},
 	"scripts": {
 		"dev": "astro dev",
-		"build": "astro build",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"check:build": "astro check && astro build && rm -rf dist && rm -rf .vercel/* && mkdir -p .vercel",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
@@ -19,10 +21,8 @@
 		"astro": "7.3.2",
 		"satteri": "0.10.5"
 	},
-	"allowScripts": {
-		"esbuild": true
-	},
 	"devDependencies": {
+		"@astrojs/check": "^0.9.10",
 		"typescript": "6.0.3"
 	}
 }
