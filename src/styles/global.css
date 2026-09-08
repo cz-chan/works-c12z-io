@@ -1,0 +1,271 @@
+@import "./reset.css"; /* reset styles */
+
+/* this font come from: https://www.collletttivo.it/typefaces/necto-mono*/
+@font-face {
+	font-family: "Necto";
+	src:
+		url("/src/assets/fonts/NectoMono-Regular.woff2") format("woff2"),
+		url("/src/assets/fonts/NectoMono-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	color-scheme: light;
+
+	--color-dark-bg: #29262a;
+	--color-light-bg: #ece9ed;
+
+	--color-dark-text: #181618;
+	--color-ligth-text: #efe9f2;
+
+	--color-dark-text-dim: #a98cb3;
+	--color-light-border: #d8d0db;
+	--color-light-accent: #6f1c8b;
+
+	/* UNIQUE FONT */
+	--w-ff-necto: "Necto", ui-monospace, monospace;
+
+	/* ---- Size ------------------- */
+	--w-text-note: 0.75rem; /* 12px */
+	--w-text-body: 0.875rem; /* 14px */
+	--w-text-head: 1rem; /* 16px */
+
+	/* ---- Leading ---------------------------- */
+	--w-leading-head: 1.3;
+	--w-leading-body: 1.7; /* generous — the whole point */
+
+	/* ---- Letter-spacing ----------------------- */
+	--w-tracking: -0.03em;
+
+	/* SPACE */
+	--w-space-2: 0.5rem; /*   8px */
+	--w-space-3: 0.75rem; /*  12px */
+	--w-space-4: 1.25rem; /*  20px */
+	--w-space-5: 2rem; /*  32px */
+	--w-space-6: 3.25rem; /*  52px */
+
+	/* LAYOUR */
+	--w-measure: 36rem; /* reading column */
+	--w-measure-wide: 52rem; /* listings, images that break out */
+	--w-gutter: var(--w-space-4);
+
+	--w-rule: 0.0625rem; /* hairline width */
+	--w-line: var(--w-rule) solid var(--color-light-border);
+
+	/* RADIUS */
+	--w-round-sm: 0.125rem;
+
+	/* MOTION */
+	--w-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+	--w-duration-fast: 120ms;
+}
+
+/* =====================================================================
+   CHROME
+   Two panes: identity on the dark left, content on the light right.
+   No furniture — world B shares none of world A's header, footer or
+   paper texture.
+
+   font-size lives on <body>, NOT on <html>, on purpose: setting it on
+   the root would redefine what 1rem means, and every --w-* token is
+   written in rem. --w-text-head would quietly become 14px instead of
+   16px, and the two measures would collapse into one.
+   ===================================================================== */
+
+html {
+	background-color: var(--color-light-bg);
+}
+
+body {
+	color: var(--color-dark-text);
+	font-family: var(--w-ff-necto);
+	font-size: var(--w-text-body);
+	line-height: var(--w-leading-body);
+	-webkit-font-smoothing: antialiased;
+
+	min-height: 100vh;
+	min-height: 100dvh;
+
+	/* Two full-bleed panes. Mobile stacks them; the panes paint their
+	   own background, so no max-width and no gutter here — the reading
+	   measure is applied inside the light pane, not to the page. */
+	display: grid;
+	grid-template-columns: 1fr;
+	align-items: stretch;
+}
+
+/* 60rem hardcoded: media queries cannot read custom properties, so a
+   token would not help here. */
+@media (min-width: 60rem) {
+	body {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+/* ---- Inverted block ------------------------------------------------
+The dark half of the palette. Custom properties inherit, so anything
+placed inside picks up the light ink without knowing where it sits.
+------------------------------------------------------------------- */
+
+.w-invert {
+	background-color: var(--color-dark-bg);
+	color: var(--color-ligth-text);
+
+	--color-dark-text: var(--color-ligth-text);
+	--color-dark-text-dim: #b09ea2;
+	--color-light-accent: var(--color-ligth-text);
+}
+
+/* =====================================================================
+   ELEMENTS
+===================================================================== */
+
+/* ---- Headings ---------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--color-dark-text);
+	font-family: var(--w-ff-necto);
+	font-weight: bold;
+	letter-spacing: var(--w-tracking);
+	text-wrap: balance;
+}
+
+h1 {
+	font-size: var(--w-text-head);
+	line-height: var(--w-leading-head);
+	margin-bottom: var(--w-space-5);
+}
+
+h2 {
+	font-size: var(--w-text-head);
+	line-height: var(--w-leading-head);
+	margin-top: var(--w-space-6);
+	margin-bottom: var(--w-space-3);
+}
+
+h3 {
+	font-size: var(--w-text-head);
+	line-height: var(--w-leading-head);
+	margin-top: var(--w-space-5);
+	margin-bottom: var(--w-space-3);
+}
+
+h4 {
+	font-size: var(--w-text-head);
+	line-height: var(--w-leading-head);
+	margin-top: var(--w-space-4);
+	margin-bottom: var(--w-space-2);
+}
+
+h5,
+h6 {
+	font-size: var(--w-text-head);
+	line-height: var(--w-leading-head);
+	margin-top: var(--w-space-4);
+	margin-bottom: var(--w-space-2);
+}
+
+/* ---- Paragraphs --------------------------------------------------- */
+
+p {
+	color: var(--color-dark-text);
+	font-family: var(--w-ff-necto);
+	font-size: var(--w-text-body);
+	line-height: var(--w-leading-body);
+	letter-spacing: var(--w-tracking);
+	font-weight: 400;
+	text-wrap: pretty;
+	margin-bottom: var(--w-space-4);
+}
+
+/* ---- Span ------------------------------------------- */
+
+span {
+	font-family: var(--w-ff-necto);
+	font-size: inherit;
+	color: inherit;
+}
+
+/* ---- Anchors ------------------------------------- */
+
+a {
+	color: inherit;
+	font-family: var(--w-ff-necto);
+	letter-spacing: var(--w-tracking);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.15em;
+	text-decoration-color: var(--color-light-accent);
+	transition:
+		color var(--w-duration-fast) var(--w-ease),
+		text-decoration-color var(--w-duration-fast) var(--w-ease);
+
+	&:hover {
+		color: var(--color-light-accent);
+	}
+}
+
+/* ---- Focus ---------------------------------------------------------
+`currentColor` en vez de un color fijo: el outline del panel oscuro se
+dibuja en tinta clara y el del claro en tinta oscura sin repetir la
+regla, porque `.w-invert` ya redefine el color heredado.
+
+`:focus-visible` y no `:focus`: el anillo aparece al tabular, no al
+hacer clic con el ratón.
+------------------------------------------------------------------- */
+
+:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 3px;
+	border-radius: var(--w-round-sm);
+}
+
+/* ---- Lists --------------------------------- */
+
+ul,
+ol {
+	color: var(--color-dark-text);
+	font-family: var(--w-ff-necto);
+	font-size: var(--w-text-body);
+	line-height: var(--w-leading-body);
+	letter-spacing: var(--w-tracking);
+	font-weight: 400;
+	padding-left: var(--w-space-4);
+	margin-bottom: var(--w-space-4);
+}
+
+ul {
+	list-style-type: disc;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+li {
+	margin-bottom: var(--w-space-2);
+}
+
+li p {
+	margin-bottom: var(--w-space-2);
+}
+
+ul > li::marker,
+ol > li::marker {
+	color: var(--color-dark-text-dim);
+}
+
+/* ---- Images -------------- */
+
+img {
+	height: auto;
+	border-radius: var(--w-round-sm);
+	margin-block: var(--w-space-5);
+}

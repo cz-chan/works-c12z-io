@@ -1,0 +1,24 @@
+{
+	"extends": "astro/tsconfigs/strict",
+	"include": [".astro/types.d.ts", "**/*"],
+	"exclude": ["dist"],
+	"compilerOptions": {
+		"paths": {
+			"@works-path/*": ["./src/paths/works/*"],
+			"@contact-path/*": ["./src/paths/contact/*"],
+			"@context-path/*": ["./src/paths/context/*"],
+			"@main-path/*": ["./src/paths/main/*"],
+			"@error-path/*": ["./src/paths/404/*"],
+
+			"@ui/*": ["./src/components/ui/*"],
+			"@seo/*": ["./src/components/seo/*"],
+			"@analytics/*": ["./src/components/analytics/*"],
+
+			"@lib/*": ["./src/lib/*"],
+			"@layouts/*": ["./src/layouts/*"],
+			"@assets/*": ["./src/assets/*"],
+			"@styles/*": ["./src/styles/*"],
+			"@global/*": ["./src/global/*"]
+		}
+	}
+}
