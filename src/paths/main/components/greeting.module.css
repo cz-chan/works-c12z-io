@@ -1,6 +1,13 @@
 .content {
 	padding: var(--w-space-7) var(--w-space-5);
 	text-align: center;
+	h1 {
+		margin-bottom: var(--w-space-3);
+	}
+	p {
+		margin: 0;
+		font-size: var(--w-text-note);
+	}
 }
 
 .left {
