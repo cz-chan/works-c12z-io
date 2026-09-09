@@ -1,0 +1,20 @@
+.footer {
+	flex-shrink: 0;
+	margin: var(--w-space-7) 0 var(--w-space-1);
+
+	max-width: var(--w-measure);
+	margin-inline: auto;
+
+	color: var(--color-dark-text-dim);
+	text-align: center;
+	text-wrap: balance;
+
+	p {
+		line-height: var(--w-leading-head);
+		font-size: var(--w-text-mini);
+	}
+}
+
+.line {
+	margin: 0;
+}
