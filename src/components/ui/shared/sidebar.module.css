@@ -15,7 +15,7 @@
 
 .identity {
 	grid-column: 1 / -1;
-	max-width: 320px;
+	max-width: var(--w-identity);
 
 	& > * + * {
 		margin-top: var(--w-space-3);

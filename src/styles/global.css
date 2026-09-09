@@ -20,9 +20,13 @@
 	--color-dark-text: #181618;
 	--color-ligth-text: #efe9f2;
 
-	--color-dark-text-dim: #a98cb3;
+	--color-dark-text-dim: #614f68;
 	--color-light-border: #d8d0db;
 	--color-light-accent: #6f1c8b;
+
+	/* text selection */
+	--color-selection-fg: #181618;
+	--color-selection-bg: #ac68ac;
 
 	/* UNIQUE FONT */
 	--w-ff-necto: "Necto", ui-monospace, monospace;
@@ -40,16 +44,19 @@
 	--w-tracking: -0.03em;
 
 	/* SPACE */
+	--w-space-1: 0.25rem; /* 4px */
 	--w-space-2: 0.5rem; /*   8px */
 	--w-space-3: 0.75rem; /*  12px */
-	--w-space-4: 1.25rem; /*  20px */
-	--w-space-5: 2rem; /*  32px */
-	--w-space-6: 3.25rem; /*  52px */
+	--w-space-4: 1rem; /* 16px */
+	--w-space-5: 1.25rem; /*  20px */
+	--w-space-6: 2rem; /*  32px */
+	--w-space-7: 3.25rem; /*  52px */
+	--w-identity: 20rem; /* 320px for my description*/
 
-	/* LAYOUR */
+	/* LAYOUT */
 	--w-measure: 36rem; /* reading column */
 	--w-measure-wide: 52rem; /* listings, images that break out */
-	--w-gutter: var(--w-space-4);
+	--w-gutter: var(--w-space-5);
 
 	--w-rule: 0.0625rem; /* hairline width */
 	--w-line: var(--w-rule) solid var(--color-light-border);
@@ -61,18 +68,6 @@
 	--w-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 	--w-duration-fast: 120ms;
 }
-
-/* =====================================================================
-   CHROME
-   Two panes: identity on the dark left, content on the light right.
-   No furniture — world B shares none of world A's header, footer or
-   paper texture.
-
-   font-size lives on <body>, NOT on <html>, on purpose: setting it on
-   the root would redefine what 1rem means, and every --w-* token is
-   written in rem. --w-text-head would quietly become 14px instead of
-   16px, and the two measures would collapse into one.
-   ===================================================================== */
 
 html {
 	background-color: var(--color-light-bg);
@@ -88,26 +83,25 @@ body {
 	min-height: 100vh;
 	min-height: 100dvh;
 
-	/* Two full-bleed panes. Mobile stacks them; the panes paint their
-	   own background, so no max-width and no gutter here — the reading
-	   measure is applied inside the light pane, not to the page. */
 	display: grid;
 	grid-template-columns: 1fr;
 	align-items: stretch;
-}
+	grid-template-rows: auto 1fr;
 
-/* 60rem hardcoded: media queries cannot read custom properties, so a
-   token would not help here. */
-@media (min-width: 60rem) {
-	body {
-		grid-template-columns: 1fr 1fr;
+	&::selection {
+		background-color: var(--color-selection-bg);
+		color: var(--color-selection-fg);
 	}
 }
 
-/* ---- Inverted block ------------------------------------------------
-The dark half of the palette. Custom properties inherit, so anything
-placed inside picks up the light ink without knowing where it sits.
-------------------------------------------------------------------- */
+@media (min-width: 60rem) {
+	body {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: none;
+	}
+}
+
+/* ---- Inverted block ----------------------- */
 
 .w-invert {
 	background-color: var(--color-dark-bg);
@@ -140,27 +134,27 @@ h6 {
 h1 {
 	font-size: var(--w-text-head);
 	line-height: var(--w-leading-head);
-	margin-bottom: var(--w-space-5);
+	margin-bottom: var(--w-space-6);
 }
 
 h2 {
 	font-size: var(--w-text-head);
 	line-height: var(--w-leading-head);
-	margin-top: var(--w-space-6);
+	margin-top: var(--w-space-7);
 	margin-bottom: var(--w-space-3);
 }
 
 h3 {
 	font-size: var(--w-text-head);
 	line-height: var(--w-leading-head);
-	margin-top: var(--w-space-5);
+	margin-top: var(--w-space-6);
 	margin-bottom: var(--w-space-3);
 }
 
 h4 {
 	font-size: var(--w-text-head);
 	line-height: var(--w-leading-head);
-	margin-top: var(--w-space-4);
+	margin-top: var(--w-space-5);
 	margin-bottom: var(--w-space-2);
 }
 
@@ -168,7 +162,7 @@ h5,
 h6 {
 	font-size: var(--w-text-head);
 	line-height: var(--w-leading-head);
-	margin-top: var(--w-space-4);
+	margin-top: var(--w-space-5);
 	margin-bottom: var(--w-space-2);
 }
 
@@ -182,7 +176,7 @@ p {
 	letter-spacing: var(--w-tracking);
 	font-weight: 400;
 	text-wrap: pretty;
-	margin-bottom: var(--w-space-4);
+	margin-bottom: var(--w-space-5);
 }
 
 /* ---- Span ------------------------------------------- */
@@ -207,19 +201,25 @@ a {
 		color var(--w-duration-fast) var(--w-ease),
 		text-decoration-color var(--w-duration-fast) var(--w-ease);
 
+	&[href^="https"]::after {
+		content: "";
+		display: inline-block;
+		width: var(--w-space-3);
+		height: var(--w-space-3);
+		margin-left: var(--w-space-1);
+		vertical-align: middle;
+		background-color: currentColor;
+		mask-image: url("/icons/go-out.svg");
+		mask-size: contain;
+		mask-repeat: no-repeat;
+	}
+
 	&:hover {
 		color: var(--color-light-accent);
 	}
 }
 
-/* ---- Focus ---------------------------------------------------------
-`currentColor` en vez de un color fijo: el outline del panel oscuro se
-dibuja en tinta clara y el del claro en tinta oscura sin repetir la
-regla, porque `.w-invert` ya redefine el color heredado.
-
-`:focus-visible` y no `:focus`: el anillo aparece al tabular, no al
-hacer clic con el ratón.
-------------------------------------------------------------------- */
+/* ---- Focus ---------------------------- */
 
 :focus-visible {
 	outline: 2px solid currentColor;
@@ -237,8 +237,8 @@ ol {
 	line-height: var(--w-leading-body);
 	letter-spacing: var(--w-tracking);
 	font-weight: 400;
-	padding-left: var(--w-space-4);
-	margin-bottom: var(--w-space-4);
+	padding-left: var(--w-space-5);
+	margin-bottom: var(--w-space-5);
 }
 
 ul {
@@ -267,5 +267,5 @@ ol > li::marker {
 img {
 	height: auto;
 	border-radius: var(--w-round-sm);
-	margin-block: var(--w-space-5);
+	margin-block: var(--w-space-6);
 }
