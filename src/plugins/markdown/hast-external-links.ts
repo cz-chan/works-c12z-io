@@ -1,4 +1,5 @@
 // https://docs.astro.build/en/recipes/external-links/#recipe
+// https://satteri.bruits.org/docs/plugins/#hast-plugins
 
 import { defineHastPlugin } from "satteri";
 
