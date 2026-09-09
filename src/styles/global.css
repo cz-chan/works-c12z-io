@@ -94,10 +94,17 @@ body {
 	}
 }
 
+main {
+	padding: var(--w-space-6) var(--w-space-5);
+}
+
 @media (min-width: 60rem) {
 	body {
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: none;
+	}
+	main {
+		padding: var(--w-space-7) var(--w-space-6);
 	}
 }
 
