@@ -1,0 +1,26 @@
+.content {
+	padding: var(--w-space-7) var(--w-space-5);
+}
+
+.goBack {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--w-space-1);
+
+	&::before {
+		content: "";
+		width: 1em;
+		height: 1em;
+		background-color: currentColor;
+		mask-image: url("/icons/go-back.svg");
+		mask-size: contain;
+		mask-repeat: no-repeat;
+		mask-position: center;
+	}
+}
+
+@media (min-width: 60rem) {
+	.content {
+		padding: var(--w-space-7) var(--w-space-6);
+	}
+}
