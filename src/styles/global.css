@@ -32,6 +32,7 @@
 	--w-ff-necto: "Necto", ui-monospace, monospace;
 
 	/* ---- Size ------------------- */
+	--w-text-mini: 0.625rem; /* 10px */
 	--w-text-note: 0.75rem; /* 12px */
 	--w-text-body: 0.875rem; /* 14px */
 	--w-text-head: 1rem; /* 16px */
@@ -54,9 +55,8 @@
 	--w-identity: 20rem; /* 320px for my description*/
 
 	/* LAYOUT */
-	--w-measure: 36rem; /* reading column */
-	--w-measure-wide: 52rem; /* listings, images that break out */
-	--w-gutter: var(--w-space-5);
+	--w-measure: 36rem;
+	--w-measure-wide: 52rem;
 
 	--w-rule: 0.0625rem; /* hairline width */
 	--w-line: var(--w-rule) solid var(--color-light-border);
@@ -95,7 +95,10 @@ body {
 }
 
 main {
-	padding: var(--w-space-6) var(--w-space-5);
+	padding: var(--w-space-6) var(--w-space-5) var(--w-space-4);
+
+	display: grid;
+	grid-template-rows: 1fr auto;
 }
 
 @media (min-width: 60rem) {
@@ -104,7 +107,7 @@ main {
 		grid-template-rows: none;
 	}
 	main {
-		padding: var(--w-space-7) var(--w-space-6);
+		padding: var(--w-space-7) var(--w-space-6) var(--w-space-4);
 	}
 }
 
