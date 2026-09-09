@@ -1,0 +1,22 @@
+.content {
+	padding: var(--w-space-7) var(--w-space-5);
+	text-align: center;
+}
+
+.left {
+	display: none;
+}
+
+.top {
+	display: inline;
+}
+
+@media (min-width: 60rem) {
+	.left {
+		display: inline;
+	}
+
+	.top {
+		display: none;
+	}
+}
