@@ -1,11 +1,15 @@
 ---
+import Main from "@ui/main/Main.astro";
 import styles from "./greeting.module.css";
 ---
 
-<main class={styles.content}>
-	<h1>welcome to cz's works</h1>
-	<p>
-		explore by clicking on any link on the <span class={styles.left}>left</span
-		><span class={styles.top}>top</span>
-	</p>
-</main>
+<Main>
+	<section class={styles.greeting}>
+		<h1>welcome to cz's works</h1>
+		<p>
+			explore by clicking on any link on the <span class={styles.left}
+				>left</span
+			><span class={styles.top}>top</span>
+		</p>
+	</section>
+</Main>
