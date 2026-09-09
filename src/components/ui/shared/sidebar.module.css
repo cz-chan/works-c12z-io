@@ -45,7 +45,8 @@
 	text-decoration: none;
 	width: fit-content;
 
-	&::after {
+	/* the underline in ::before and ::after is used by the "go-out" icon for external links */
+	&::before {
 		content: "";
 		position: absolute;
 		right: 0;
@@ -59,8 +60,8 @@
 		transition: transform var(--w-duration-fast) var(--w-ease);
 	}
 
-	&:hover::after,
-	&:focus-visible::after {
+	&:hover::before,
+	&:focus-visible::before {
 		transform: scaleX(1);
 	}
 }
@@ -123,7 +124,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.navLink::after {
+	.navLink::before {
 		transition: none;
 	}
 }
