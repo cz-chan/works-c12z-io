@@ -1,0 +1,20 @@
+---
+import styles from "./goback.module.css";
+
+interface Props {
+	backHref?: string;
+}
+
+const { backHref } = Astro.props;
+---
+
+{
+	backHref && (
+		<a
+			class={styles.goBack}
+			href={backHref}
+		>
+			go back
+		</a>
+	)
+}
