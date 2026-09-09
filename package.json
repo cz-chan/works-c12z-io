@@ -22,7 +22,7 @@
 		"satteri": "0.10.5"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.10",
+		"@astrojs/check": "0.9.10",
 		"typescript": "6.0.3"
 	}
 }

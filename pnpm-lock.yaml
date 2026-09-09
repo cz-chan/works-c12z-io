@@ -28,7 +28,7 @@ importers:
         version: 0.10.5
     devDependencies:
       '@astrojs/check':
-        specifier: ^0.9.10
+        specifier: 0.9.10
         version: 0.9.10(prettier@3.9.6)(typescript@6.0.3)
       typescript:
         specifier: 6.0.3
