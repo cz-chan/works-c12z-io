@@ -1,0 +1,30 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+
+import { isGenericWork } from "@utils/works.ts";
+
+import MainLayout from "@layouts/MainLayout.astro";
+import WorkDetail from "@works-path/components/WorkDetail.astro";
+
+export async function getStaticPaths() {
+	const works = await getCollection("works", isGenericWork);
+
+	return works.map((work) => ({
+		params: { id: work.id },
+		props: { work },
+	}));
+}
+
+interface Props {
+	work: CollectionEntry<"works">;
+}
+
+const { work } = Astro.props;
+---
+
+<MainLayout>
+	<WorkDetail
+		backHref="/works"
+		entry={work}
+	/>
+</MainLayout>

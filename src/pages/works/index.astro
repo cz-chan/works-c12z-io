@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+
+import { byRecency, isTopLevel, toContentListItems } from "@utils/works.ts";
+import { PAGES } from "@global/pages-info.ts";
+
+import MainLayout from "@layouts/MainLayout.astro";
+import GoBack from "@ui/goback/GoBack.astro";
+import ContentList from "@works-path/components/ContentList.astro";
+
+const works = (await getCollection("works", isTopLevel)).sort(byRecency);
+---
+
+<MainLayout>
+	<GoBack backHref="/" />
+	<section>
+		<ContentList
+			items={toContentListItems(works)}
+			title={PAGES.works.heading}
+			titleAs="h1"
+		/>
+	</section>
+</MainLayout>

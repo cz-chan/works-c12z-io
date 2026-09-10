@@ -1,0 +1,28 @@
+---
+import { getCollection, getEntry } from "astro:content";
+
+import WorkDetail from "@works-path/components/WorkDetail.astro";
+import {
+	FREELANCE_ID,
+	byRecency,
+	isChildOf,
+	toContentListItems,
+} from "@utils/works.ts";
+import MainLayout from "@layouts/MainLayout.astro";
+
+const work = await getEntry("works", FREELANCE_ID);
+if (!work)
+	throw new Error(`The entry "${FREELANCE_ID}" is missing from works.`);
+
+const projects = (await getCollection("works", isChildOf(FREELANCE_ID))).sort(
+	byRecency,
+);
+---
+
+<MainLayout>
+	<WorkDetail
+		backHref="/works"
+		entry={work}
+		childWorks={toContentListItems(projects)}
+	/>
+</MainLayout>
