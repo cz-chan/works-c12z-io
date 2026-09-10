@@ -24,7 +24,10 @@ const { works } = Astro.props;
 ---
 
 <MainLayout>
-	<ContentSEO entry={works} />
+	<ContentSEO
+		slot="head"
+		entry={works}
+	/>
 	<WorkDetail
 		backHref="/works"
 		entry={works}
