@@ -1,14 +1,17 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 
-import WorkDetail from "@works-path/components/WorkDetail.astro";
+import { PAGES } from "@global/pages-info.ts";
 import {
 	FREELANCE_ID,
 	byRecency,
 	isChildOf,
 	toContentListItems,
 } from "@utils/works.ts";
+
 import MainLayout from "@layouts/MainLayout.astro";
+import PagesSEO from "@seo/PagesSEO.astro";
+import WorkDetail from "@works-path/components/WorkDetail.astro";
 
 const work = await getEntry("works", FREELANCE_ID);
 if (!work)
@@ -17,9 +20,17 @@ if (!work)
 const projects = (await getCollection("works", isChildOf(FREELANCE_ID))).sort(
 	byRecency,
 );
+
+const FREELANCE_PAGE = PAGES.freelance;
 ---
 
 <MainLayout>
+	<PagesSEO
+		slot="head"
+		pageTitle={FREELANCE_PAGE.title}
+		pageDescription={FREELANCE_PAGE.description}
+		keywords={FREELANCE_PAGE.keywords}
+	/>
 	<WorkDetail
 		backHref="/works"
 		entry={work}

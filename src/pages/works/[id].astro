@@ -1,11 +1,11 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 import { isGenericWork } from "@utils/works.ts";
 
 import MainLayout from "@layouts/MainLayout.astro";
-import WorkDetail from "@works-path/components/WorkDetail.astro";
 import ContentSEO from "@seo/ContentSEO.astro";
+import WorkDetail from "@works-path/components/WorkDetail.astro";
 
 export async function getStaticPaths() {
 	const works = await getCollection("works", isGenericWork);
@@ -16,20 +16,16 @@ export async function getStaticPaths() {
 	}));
 }
 
-interface Props {
-	works: CollectionEntry<"works">;
-}
-
-const { works } = Astro.props;
+const { work } = Astro.props;
 ---
 
 <MainLayout>
 	<ContentSEO
 		slot="head"
-		entry={works}
+		entry={work}
 	/>
 	<WorkDetail
 		backHref="/works"
-		entry={works}
+		entry={work}
 	/>
 </MainLayout>

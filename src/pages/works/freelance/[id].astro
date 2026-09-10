@@ -1,35 +1,32 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 import { FREELANCE_ID, isChildOf } from "@utils/works.ts";
 
 import MainLayout from "@layouts/MainLayout.astro";
-import WorkDetail from "@works-path/components/WorkDetail.astro";
 import ContentSEO from "@seo/ContentSEO.astro";
+import WorkDetail from "@works-path/components/WorkDetail.astro";
 
 export async function getStaticPaths() {
 	const projects = await getCollection("works", isChildOf(FREELANCE_ID));
 
-	return projects.map((work) => ({
-		params: { id: work.id.slice(FREELANCE_ID.length + 1) },
-		props: { work },
+	return projects.map((freelanceWork) => ({
+		params: { id: freelanceWork.id.slice(FREELANCE_ID.length + 1) },
+		props: { freelanceWork },
 	}));
 }
 
-interface Props {
-	freelanceWorks: CollectionEntry<"works">;
-}
-
-const { freelanceWorks } = Astro.props;
+const { freelanceWork } = Astro.props;
 ---
 
 <MainLayout>
 	<ContentSEO
 		slot="head"
-		entry={freelanceWorks}
+		entry={freelanceWork}
 	/>
+
 	<WorkDetail
 		backHref="/works/freelance"
-		entry={freelanceWorks}
+		entry={freelanceWork}
 	/>
 </MainLayout>

@@ -1,8 +1,19 @@
 ---
+import { PAGES } from "@global/pages-info.ts";
+
 import MainLayout from "@layouts/MainLayout.astro";
 import Greeting from "@main-path/components/Greeting.astro";
+import PagesSEO from "@seo/PagesSEO.astro";
+
+const CHEMA_WORKS = PAGES.home;
 ---
 
 <MainLayout showFooter={false}>
+	<PagesSEO
+		slot="head"
+		pageTitle={CHEMA_WORKS.title}
+		pageDescription={CHEMA_WORKS.description}
+		keywords={CHEMA_WORKS.keywords}
+	/>
 	<Greeting />
 </MainLayout>

@@ -7,17 +7,25 @@ import { PAGES } from "@global/pages-info.ts";
 import MainLayout from "@layouts/MainLayout.astro";
 import GoBack from "@ui/goback/GoBack.astro";
 import ContentList from "@works-path/components/ContentList.astro";
+import PagesSEO from "@seo/PagesSEO.astro";
 
 const works = (await getCollection("works", isTopLevel)).sort(byRecency);
+
+const WORK_PAGE = PAGES.works;
 ---
 
 <MainLayout>
+	<PagesSEO
+		slot="head"
+		pageTitle={WORK_PAGE.title}
+		pageDescription={WORK_PAGE.description}
+		keywords={WORK_PAGE.keywords}
+	/>
 	<GoBack backHref="/" />
-	<section>
-		<ContentList
-			items={toContentListItems(works)}
-			title={PAGES.works.heading}
-			titleAs="h1"
-		/>
-	</section>
+
+	<ContentList
+		items={toContentListItems(works)}
+		title={WORK_PAGE.heading}
+		titleAs="h1"
+	/>
 </MainLayout>
