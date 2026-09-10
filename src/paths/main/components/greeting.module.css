@@ -1,4 +1,8 @@
 .greeting {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
 
 	h1 {
@@ -17,6 +21,11 @@
 
 .top {
 	display: inline;
+}
+
+.intro {
+	max-width: var(--w-measure);
+	text-wrap: balance;
 }
 
 @media (min-width: 60rem) {
