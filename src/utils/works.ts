@@ -9,9 +9,11 @@ export const FREELANCE_ID = "freelance";
 // top level is only '/works/{company}' no '/works/freelance/{company}'
 export const isTopLevel = ({ id }: Work): boolean => !id.includes("/");
 
+// different from freelance, true/false
 export const isGenericWork = (work: Work): boolean =>
 	isTopLevel(work) && work.id !== FREELANCE_ID;
 
+// any descendant: 'freelance/acme' is child of 'freelance', but 'freelance' isn't
 export const isChildOf =
 	(parentId: string) =>
 	({ id }: Work): boolean =>
@@ -42,9 +44,14 @@ export const dateRange = ({ data }: Work): string =>
 	}`;
 
 export const toContentListItems = (works: Work[]) =>
-	works.map((work) => ({
-		title: work.data.company,
-		subtitle: work.data.role,
-		href: `/works/${work.id}`,
-		meta: dateRange(work),
-	}));
+	works.map((work) => {
+		const { data, id } = work;
+		const { company, role } = data;
+
+		return {
+			title: company,
+			subtitle: role,
+			href: `/works/${id}`,
+			meta: dateRange(work),
+		};
+	});
