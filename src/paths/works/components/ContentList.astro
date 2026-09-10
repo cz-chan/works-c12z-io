@@ -17,37 +17,39 @@ interface Props {
 const { items, title, titleAs: Title = "h2" } = Astro.props;
 ---
 
-{
-	title && (
-		<Title
-			class={styles.title}
-			lang="en"
-		>
-			{title}
-		</Title>
-	)
-}
-
-<ul
-	class={styles.list}
-	role="list"
->
+<section>
 	{
-		items.map((item) => (
-			<li class={styles.entry}>
-				<span class={styles.entryText}>
-					<a
-						class={styles.entryLink}
-						href={item.href}
-					>
-						{item.title}
-					</a>
-					{item.subtitle && (
-						<span class={styles.entrySubtitle}>{item.subtitle}</span>
-					)}
-				</span>
-				{item.meta && <span class={styles.entryMeta}>{item.meta}</span>}
-			</li>
-		))
+		title && (
+			<Title
+				class={styles.title}
+				lang="en"
+			>
+				{title}
+			</Title>
+		)
 	}
-</ul>
+
+	<ul
+		class={styles.list}
+		role="list"
+	>
+		{
+			items.map((item) => (
+				<li class={styles.entry}>
+					<span class={styles.entryText}>
+						<a
+							class={styles.entryLink}
+							href={item.href}
+						>
+							{item.title}
+						</a>
+						{item.subtitle && (
+							<span class={styles.entrySubtitle}>{item.subtitle}</span>
+						)}
+					</span>
+					{item.meta && <span class={styles.entryMeta}>{item.meta}</span>}
+				</li>
+			))
+		}
+	</ul>
+</section>
