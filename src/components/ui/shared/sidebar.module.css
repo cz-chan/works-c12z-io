@@ -10,6 +10,14 @@
 	& .presentation {
 		margin: 0;
 		margin-bottom: var(--w-space-5);
+
+		color: var(--color-dark-text);
+		font-family: var(--w-ff-necto);
+		font-size: var(--w-text-head);
+		font-weight: bold;
+		line-height: var(--w-leading-head);
+		letter-spacing: var(--w-tracking);
+		text-wrap: balance;
 	}
 }
 
