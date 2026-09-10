@@ -2,6 +2,7 @@
 	display: inline-flex;
 	align-items: center;
 	gap: var(--w-space-1);
+	width: fit-content;
 
 	&::before {
 		content: "";
