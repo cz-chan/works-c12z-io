@@ -1,0 +1,41 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+
+import styles from "@works-path/components/works.module.css";
+
+import { dateRange } from "@utils/works.ts";
+
+interface Props {
+	work: CollectionEntry<"works">;
+}
+
+const { work } = Astro.props;
+const { role, company, where, url } = work.data;
+
+const hasBody = Boolean(work.body?.trim());
+const { Content } = await render(work);
+---
+
+<header class={styles.header}>
+	<h1 class={styles.title}>{company}</h1>
+	<span class={styles.meta}>{role} — {where}</span>
+	<span class={styles.meta}>{dateRange(work)}</span>
+	{
+		url && (
+			<a
+				class={styles.url}
+				href={url}
+			>
+				{url.replace(/^https:\/\//, "")}
+			</a>
+		)
+	}
+</header>
+
+{
+	hasBody && (
+		<article class={styles.body}>
+			<Content />
+		</article>
+	)
+}
