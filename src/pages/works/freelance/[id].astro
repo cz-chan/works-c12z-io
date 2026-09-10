@@ -5,6 +5,7 @@ import { FREELANCE_ID, isChildOf } from "@utils/works.ts";
 
 import MainLayout from "@layouts/MainLayout.astro";
 import WorkDetail from "@works-path/components/WorkDetail.astro";
+import ContentSEO from "@seo/ContentSEO.astro";
 
 export async function getStaticPaths() {
 	const projects = await getCollection("works", isChildOf(FREELANCE_ID));
@@ -16,15 +17,16 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-	work: CollectionEntry<"works">;
+	freelanceWorks: CollectionEntry<"works">;
 }
 
-const { work } = Astro.props;
+const { freelanceWorks } = Astro.props;
 ---
 
 <MainLayout>
+	<ContentSEO entry={freelanceWorks} />
 	<WorkDetail
 		backHref="/works/freelance"
-		entry={work}
+		entry={freelanceWorks}
 	/>
 </MainLayout>
