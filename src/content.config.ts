@@ -15,6 +15,7 @@ const works = defineCollection({
 		end: z.date().optional(),
 		where: z.string(),
 		url: z.string().startsWith("https://").optional(),
+		keywords: z.array(z.string()).optional(),
 	}),
 });
 
