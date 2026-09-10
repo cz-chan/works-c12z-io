@@ -1,0 +1,53 @@
+---
+import styles from "@works-path/components/content-list.module.css";
+
+export interface ContentListItem {
+	title: string;
+	href: string;
+	subtitle?: string;
+	meta?: string;
+}
+
+interface Props {
+	items: ContentListItem[];
+	title?: string;
+	titleAs?: "h1" | "h2";
+}
+
+const { items, title, titleAs: Title = "h2" } = Astro.props;
+---
+
+{
+	title && (
+		<Title
+			class={styles.title}
+			lang="en"
+		>
+			{title}
+		</Title>
+	)
+}
+
+<ul
+	class={styles.list}
+	role="list"
+>
+	{
+		items.map((item) => (
+			<li class={styles.entry}>
+				<span class={styles.entryText}>
+					<a
+						class={styles.entryLink}
+						href={item.href}
+					>
+						{item.title}
+					</a>
+					{item.subtitle && (
+						<span class={styles.entrySubtitle}>{item.subtitle}</span>
+					)}
+				</span>
+				{item.meta && <span class={styles.entryMeta}>{item.meta}</span>}
+			</li>
+		))
+	}
+</ul>
