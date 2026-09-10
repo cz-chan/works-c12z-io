@@ -3,6 +3,13 @@ import "@styles/global.css";
 
 import BaseHead from "@seo/BaseHead.astro";
 import Sidebar from "@ui/shared/Sidebar.astro";
+import Footer from "@ui/footer/Footer.astro";
+
+interface Props {
+	showFooter?: boolean;
+}
+
+const { showFooter = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -13,7 +20,10 @@ import Sidebar from "@ui/shared/Sidebar.astro";
 	<body>
 		<Sidebar />
 		<main>
-			<slot />
+			<div>
+				<slot />
+			</div>
+			{showFooter && <Footer />}
 		</main>
 	</body>
 </html>
