@@ -98,7 +98,7 @@ main {
 	padding: var(--w-space-6) var(--w-space-5) var(--w-space-4);
 
 	display: grid;
-	grid-template-rows: 1fr auto;
+	grid-template-rows: auto 1fr auto;
 }
 
 @media (min-width: 60rem) {

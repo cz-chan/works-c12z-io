@@ -20,9 +20,8 @@ const { showFooter = true } = Astro.props;
 	<body>
 		<Sidebar />
 		<main>
-			<div>
-				<slot />
-			</div>
+			<slot />
+
 			{showFooter && <Footer />}
 		</main>
 	</body>
