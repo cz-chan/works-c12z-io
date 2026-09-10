@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ContentList, {
+	type ContentListItem,
+} from "@works-path/components/ContentList.astro";
+import GoBack from "@ui/goback/GoBack.astro";
+import WorkDescription from "@works-path/components/WorkDescription.astro";
+
+interface Props {
+	entry: CollectionEntry<"works">;
+	backHref: string;
+	// works that live under this one, listed below its description
+	childWorks?: ContentListItem[];
+}
+
+const { entry, backHref, childWorks = [] } = Astro.props;
+---
+
+<GoBack backHref={backHref} />
+
+<section>
+	<WorkDescription work={entry} />
+
+	{childWorks.length > 0 && <ContentList items={childWorks} />}
+</section>
