@@ -1,0 +1,133 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { processKeywords } from "@utils/seo/process-keywords.ts";
+
+interface Props {
+	entry: CollectionEntry<"works">;
+}
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const { entry } = Astro.props;
+const { company, start, keywords, description } = entry.data;
+
+const ogImage = new URL("/og-image.webp", Astro.site);
+const ogAlt = "image from works.c12z.io - chema ferrandez";
+const postName = `chema's works at ${company}`;
+const postDesc = description;
+
+const publishDate = start.toISOString();
+---
+
+<title>{postName}</title>
+
+<meta
+	name="title"
+	content={postName}
+/>
+<meta
+	name="description"
+	content={postDesc}
+/>
+<meta
+	name="author"
+	content="chema ferrández"
+/>
+
+<link
+	rel="canonical"
+	href={canonical}
+/>
+
+{/* OPEN GRAPH - Facebook , LinkedIn, WhatsApp */}
+<meta
+	property="og:type"
+	content="article"
+/>
+<meta
+	property="og:site_name"
+	content="works.c12z.io"
+/>
+<meta
+	property="og:title"
+	content={postName}
+/>
+<meta
+	property="og:description"
+	content={postDesc}
+/>
+<meta
+	property="og:url"
+	content={canonical}
+/>
+<meta
+	property="og:locale"
+	content="en_US"
+/>
+
+<meta
+	property="og:image"
+	content={ogImage}
+/>
+<meta
+	property="og:image:alt"
+	content={ogAlt}
+/>
+<meta
+	property="og:image:width"
+	content="1200"
+/>
+<meta
+	property="og:image:height"
+	content="630"
+/>
+
+<meta
+	property="article:published_time"
+	content={publishDate}
+/>
+
+<meta
+	property="fb:app_id"
+	content="1548538199200247"
+/>
+
+{
+	keywords &&
+		processKeywords(keywords).map((key) => (
+			<meta
+				property="article:tag"
+				content={key}
+			/>
+		))
+}
+
+{/* TWITTER - X */}
+<meta
+	name="twitter:card"
+	content="summary_large_image"
+/>
+<meta
+	name="twitter:title"
+	content={postName}
+/>
+<meta
+	name="twitter:description"
+	content={postDesc}
+/>
+<meta
+	name="twitter:image"
+	content={ogImage}
+/>
+<meta
+	name="twitter:image:alt"
+	content={ogAlt}
+/>
+<meta
+	name="twitter:site"
+	content="@cz__chan"
+/>
+<meta
+	name="twitter:creator"
+	content="@cz__chan"
+/>
