@@ -1,6 +1,6 @@
 .footer {
 	flex-shrink: 0;
-	margin: var(--w-space-7) 0 var(--w-space-1);
+	margin: var(--w-space-footer) 0 var(--w-space-1);
 
 	max-width: var(--w-measure);
 	margin-inline: auto;
