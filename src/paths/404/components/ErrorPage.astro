@@ -1,0 +1,20 @@
+---
+import styles from "@error-path/components/error.module.css";
+
+const letsWork = new URL(Astro.url.pathname, Astro.site)
+	.toString()
+	.split("//")
+	.at(1);
+---
+
+<section class={styles.errorPage}>
+	<h1>page not found</h1>
+	<p>
+		probably this url <span class={styles.url}>{letsWork}</span> has ceased to exist
+		or has never existed. but it's always a good time to let you know that if you
+		want us to work together, you can go to <a href="/contact">contact</a>. i'll
+		be happy to talk to you.
+	</p>
+
+	<a href="/">back to home</a>
+</section>

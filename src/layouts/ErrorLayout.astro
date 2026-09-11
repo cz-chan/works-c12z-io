@@ -2,6 +2,7 @@
 import "@styles/global.css";
 
 import BaseHead from "@seo/BaseHead.astro";
+import EmptySidebar from "@error-path/components/EmptySidebar.astro";
 ---
 
 <!doctype html>
@@ -10,8 +11,24 @@ import BaseHead from "@seo/BaseHead.astro";
 		<slot name="head" />
 	</BaseHead>
 	<body>
+		<EmptySidebar />
 		<main>
 			<slot />
 		</main>
 	</body>
 </html>
+
+<style>
+	/* Desktop: swap sidebar and main columns */
+	@media (min-width: 60rem) {
+		main {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		:global(body > header) {
+			grid-column: 2;
+			grid-row: 1;
+		}
+	}
+</style>

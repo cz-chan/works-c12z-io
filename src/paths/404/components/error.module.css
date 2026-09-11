@@ -1,0 +1,28 @@
+.errorPage {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	margin: var(--w-space-7) var(--w-space-2);
+
+	background-color: var(--color-light-bg);
+	color: var(--color-dark-text);
+
+	font-size: var(--w-text-body);
+	text-align: center;
+
+	a {
+		margin-top: var(--w-space-2);
+		text-decoration: underline;
+
+		:hover {
+			text-decoration: none;
+		}
+	}
+
+	.url {
+		font-size: var(--w-text-note);
+		color: var(--color-dark-text-dim);
+	}
+}
