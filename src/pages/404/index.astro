@@ -1,0 +1,18 @@
+---
+import ErrorPage from "@error-path/components/ErrorPage.astro";
+import { PAGES } from "@global/pages-info.ts";
+
+import ErrorLayout from "@layouts/ErrorLayout.astro";
+import PagesSEO from "@seo/PagesSEO.astro";
+
+const ERROR_PAGE = PAGES.error;
+---
+
+<ErrorLayout>
+	<PagesSEO
+		slot="head"
+		pageTitle={ERROR_PAGE.title}
+		pageDescription={ERROR_PAGE.description}
+	/>
+	<ErrorPage />
+</ErrorLayout>
