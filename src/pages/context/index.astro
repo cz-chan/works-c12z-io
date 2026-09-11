@@ -1,9 +1,20 @@
 ---
+import { PAGES } from "@global/pages-info.ts";
+
 import MainLayout from "@layouts/MainLayout.astro";
+import PagesSEO from "@seo/PagesSEO.astro";
 import GoBack from "@ui/goback/GoBack.astro";
+import ContextPage from "@context-path/components/ContextPage.astro";
+
+const CONTEXT_PAGE = PAGES.context;
 ---
 
 <MainLayout>
+	<PagesSEO
+		slot="head"
+		pageTitle={CONTEXT_PAGE.title}
+		pageDescription={CONTEXT_PAGE.description}
+	/>
 	<GoBack backHref="/" />
-	<h2>Context Page</h2>
+	<ContextPage />
 </MainLayout>

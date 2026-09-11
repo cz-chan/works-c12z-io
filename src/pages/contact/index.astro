@@ -1,9 +1,20 @@
 ---
+import ContactPage from "@contact-path/components/ContactPage.astro";
+import { PAGES } from "@global/pages-info.ts";
+
 import MainLayout from "@layouts/MainLayout.astro";
+import PagesSEO from "@seo/PagesSEO.astro";
 import GoBack from "@ui/goback/GoBack.astro";
+
+const CONTACT_PAGE = PAGES.contact;
 ---
 
 <MainLayout>
+	<PagesSEO
+		slot="head"
+		pageTitle={CONTACT_PAGE.title}
+		pageDescription={CONTACT_PAGE.description}
+	/>
 	<GoBack backHref="/" />
-	<h2>Contact Page</h2>
+	<ContactPage />
 </MainLayout>
