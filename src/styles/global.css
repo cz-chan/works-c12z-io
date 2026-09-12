@@ -56,8 +56,8 @@
 	--w-identity: 20rem; /* 320px for my description*/
 
 	/* LAYOUT */
-	--w-measure: 36rem;
-	--w-measure-wide: 52rem;
+	--w-content-view: 32rem;
+	--w-content-view-wide: 52rem;
 
 	--w-rule: 0.0625rem; /* hairline width */
 	--w-line: var(--w-rule) solid var(--color-light-border);

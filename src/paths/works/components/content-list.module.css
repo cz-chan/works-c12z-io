@@ -9,7 +9,7 @@
 	padding-left: 0;
 	margin-bottom: 0;
 	margin-inline: auto;
-	max-width: var(--w-measure);
+	max-width: var(--w-content-view);
 
 	border-top: var(--w-line);
 }

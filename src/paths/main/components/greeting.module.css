@@ -24,7 +24,7 @@
 }
 
 .intro {
-	max-width: var(--w-measure);
+	max-width: var(--w-content-view);
 	text-wrap: balance;
 }
 

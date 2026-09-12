@@ -2,7 +2,7 @@
 	flex-shrink: 0;
 	margin: var(--w-space-footer) 0 var(--w-space-1);
 
-	max-width: var(--w-measure);
+	max-width: var(--w-content-view);
 	margin-inline: auto;
 
 	color: var(--color-dark-text-dim);

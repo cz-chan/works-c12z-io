@@ -1,5 +1,5 @@
 .header {
-	max-width: var(--w-measure);
+	max-width: var(--w-content-view);
 	margin-inline: auto;
 	margin-bottom: calc(var(--w-space-7) * 1.5);
 
@@ -26,7 +26,7 @@
 }
 
 .body {
-	max-width: var(--w-measure);
+	max-width: var(--w-content-view);
 	margin-inline: auto;
 
 	& > :last-child {
