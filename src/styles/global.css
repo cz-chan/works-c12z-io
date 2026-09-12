@@ -39,7 +39,7 @@
 
 	/* ---- Leading ---------------------------- */
 	--w-leading-head: 1.3;
-	--w-leading-body: 1.7; /* generous — the whole point */
+	--w-leading-body: 1.5;
 
 	/* ---- Letter-spacing ----------------------- */
 	--w-tracking: -0.03em;
