@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import Favicons from "@seo/Favicons.astro";
+import SiteSchema from "@seo/SiteSchema.astro";
 
 interface Props {
 	robotsIndex?: "index" | "noindex";
@@ -60,6 +61,8 @@ const { robotsFollow = "follow", robotsIndex = "index" } = Astro.props;
 		rel="sitemap"
 		href="/sitemap-index.xml"
 	/>
+
+	<SiteSchema />
 
 	<slot />
 </head>

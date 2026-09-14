@@ -1,0 +1,34 @@
+---
+const personId = "https://c12z.io/#person";
+
+const schema = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "Person",
+			"@id": personId,
+			name: "Chema Ferrández",
+			url: "https://c12z.io",
+			sameAs: [
+				"https://works.c12z.io",
+				"https://github.com/cz-chan",
+				"https://linkedin.com/in/chemaferrandez",
+			],
+		},
+		{
+			"@type": "WebSite",
+			"@id": "https://works.c12z.io/#website",
+			name: "works.c12z.io",
+			url: "https://works.c12z.io",
+			author: { "@id": personId },
+			publisher: { "@id": personId },
+		},
+	],
+};
+---
+
+<script
+	is:inline
+	type="application/ld+json"
+	set:html={JSON.stringify(schema)}
+/>
