@@ -10,25 +10,10 @@ import EmptySidebar from "@error-path/components/EmptySidebar.astro";
 	<BaseHead robotsIndex="noindex">
 		<slot name="head" />
 	</BaseHead>
-	<body>
+	<body class="w-layout-error">
 		<EmptySidebar />
 		<main>
 			<slot />
 		</main>
 	</body>
 </html>
-
-<style>
-	/* Desktop: swap sidebar and main columns */
-	@media (min-width: 60rem) {
-		main {
-			grid-column: 1;
-			grid-row: 1;
-		}
-
-		:global(body > header) {
-			grid-column: 2;
-			grid-row: 1;
-		}
-	}
-</style>

@@ -110,6 +110,19 @@ main {
 	main {
 		padding: var(--w-space-7) var(--w-space-6) var(--w-space-4);
 	}
+
+	/* Error layout: swap sidebar and main columns */
+	body.w-layout-error {
+		> main {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		> header {
+			grid-column: 2;
+			grid-row: 1;
+		}
+	}
 }
 
 /* ---- Inverted block ----------------------- */
