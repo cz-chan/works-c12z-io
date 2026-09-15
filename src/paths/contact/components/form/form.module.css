@@ -87,7 +87,7 @@
 			width: var(--w-space-5);
 			height: var(--w-space-5);
 			margin-top: 2px;
-			accent-color: var(--color-light-accent);
+			accent-color: var(--color-dark-text-dim);
 			cursor: pointer;
 
 			&:user-invalid {
