@@ -37,7 +37,6 @@
 	& .input {
 		width: 100%;
 		color: var(--color-dark-text);
-		font-size: var(--w-text-body);
 		background-color: #e8e3e9;
 		border: 1.5px solid var(--color-dark-bg);
 		border-radius: var(--w-space-2);
@@ -46,6 +45,11 @@
 		transition:
 			border-color 0.15s ease,
 			box-shadow 0.15s ease;
+
+		font-size: var(--w-text-note);
+		@media (pointer: coarse) {
+			font-size: var(--w-text-head);
+		}
 
 		&::placeholder {
 			color: var(--color-dark-text);
