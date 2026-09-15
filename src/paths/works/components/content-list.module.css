@@ -25,18 +25,18 @@
 	border-bottom: var(--w-line);
 }
 
+.workList {
+	text-decoration: none;
+
+	&:hover .company {
+		text-decoration: underline;
+	}
+}
+
 .entryText {
 	display: flex;
 	flex-direction: column;
 	align-items: start;
-}
-
-.entryLink {
-	text-decoration: none;
-
-	&:hover {
-		text-decoration: underline;
-	}
 }
 
 .entrySubtitle {
