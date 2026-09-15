@@ -1,0 +1,14 @@
+---
+import { CLOUDFLARE_TURNSTILE_PUBLIC_KEY } from "astro:env/client";
+---
+
+<div style={{ "margin-top": "12px" }}>
+	<div
+		class="cf-turnstile"
+		data-sitekey={CLOUDFLARE_TURNSTILE_PUBLIC_KEY}
+		data-size="flexible"
+		data-theme="light"
+		data-appearance="interaction-only"
+	>
+	</div>
+</div>
