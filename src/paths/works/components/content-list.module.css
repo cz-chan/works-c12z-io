@@ -14,6 +14,11 @@
 	border-top: var(--w-line);
 }
 
+.item {
+	margin-bottom: 0;
+	border-bottom: var(--w-line);
+}
+
 .entry {
 	display: flex;
 	align-items: center;
@@ -21,14 +26,10 @@
 	gap: var(--w-space-5);
 
 	padding-block: var(--w-space-2);
-	margin-bottom: 0;
-	border-bottom: var(--w-line);
-}
-
-.workList {
 	text-decoration: none;
 
-	&:hover .company {
+	&:hover .company,
+	&:focus-visible .company {
 		text-decoration: underline;
 	}
 }

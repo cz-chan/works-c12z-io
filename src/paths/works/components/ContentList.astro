@@ -35,11 +35,11 @@ const { items, title, titleAs: Title = "h2" } = Astro.props;
 	>
 		{
 			items.map((item) => (
-				<a
-					href={item.href}
-					class={styles.workList}
-				>
-					<li class={styles.entry}>
+				<li class={styles.item}>
+					<a
+						href={item.href}
+						class={styles.entry}
+					>
 						<span class={styles.entryText}>
 							<p class={styles.company}>{item.title}</p>
 							{item.subtitle && (
@@ -47,8 +47,8 @@ const { items, title, titleAs: Title = "h2" } = Astro.props;
 							)}
 						</span>
 						{item.meta && <span class={styles.entryMeta}>{item.meta}</span>}
-					</li>
-				</a>
+					</a>
+				</li>
 			))
 		}
 	</ul>
