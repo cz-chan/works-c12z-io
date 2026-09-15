@@ -2,8 +2,22 @@
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+}
 
-	.content {
-		text-align: start;
+.disclaimer {
+	margin-top: var(--w-space-6);
+	font-size: var(--w-text-note);
+
+	& .email {
+		padding: 2px 4px;
+		background-color: var(--color-light-border);
+		color: var(--color-dark-text-dim);
+		border-radius: var(--w-space-2);
+		cursor: pointer;
+		width: fit-content;
+
+		&:active {
+			transform: scale(0.95);
+		}
 	}
 }

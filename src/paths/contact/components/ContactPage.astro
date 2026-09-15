@@ -1,9 +1,15 @@
 ---
 import styles from "@contact-path/components/contact.module.css";
+import Form from "@contact-path/components/form/Form.astro";
 ---
 
 <section class={styles.section}>
 	<h1>let's talk</h1>
 
-	<article class={styles.content}></article>
+	<Form />
+
+	<p class={styles.disclaimer}>
+		if you'd prefer, you can contact me on your own by clicking on the email
+		address to copy it: <button class={styles.email}>chema@c12z.io </button>
+	</p>
 </section>
