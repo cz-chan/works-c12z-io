@@ -19,6 +19,7 @@
 			"@layouts/*": ["./src/layouts/*"],
 			"@assets/*": ["./src/assets/*"],
 			"@styles/*": ["./src/styles/*"],
+			"@actions/*": ["./src/actions/*"],
 			"@global/*": ["./src/global/*"]
 		}
 	}
