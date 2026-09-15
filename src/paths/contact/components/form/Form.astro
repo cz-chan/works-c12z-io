@@ -1,0 +1,167 @@
+---
+import styles from "@contact-path/components/form/form.module.css";
+
+import {
+	FIELDS,
+	SUBJECT_LABELS,
+	subjectSchema,
+} from "@contact-path/lib/form.schema.ts";
+---
+
+<section class={styles.sectionForm}>
+	<form
+		class={styles.form}
+		id="contact-form"
+		method="post"
+		action=""
+	>
+		<div
+			aria-hidden="true"
+			class={styles.hpField}
+		>
+			<label for={FIELDS.company}>company_name</label>
+			<input
+				type="text"
+				id={FIELDS.company}
+				name={FIELDS.company}
+				tabindex="-1"
+				autocomplete="off"
+			/>
+		</div>
+
+		<div class={styles.field}>
+			<label
+				class={styles.label}
+				for={FIELDS.name}
+				>name<span
+					class={styles.required}
+					aria-hidden="true"
+					>*</span
+				>
+			</label>
+			<input
+				class={styles.input}
+				type="text"
+				id={FIELDS.name}
+				name={FIELDS.name}
+				placeholder="your name"
+				required
+				autocomplete="given-name"
+			/>
+		</div>
+
+		<div class={styles.field}>
+			<label
+				class={styles.label}
+				for={FIELDS.email}
+				>email<span
+					class={styles.required}
+					aria-hidden="true"
+					>*</span
+				>
+			</label>
+			<input
+				class={styles.input}
+				type="email"
+				pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+				title="your_name@example.com"
+				name={FIELDS.email}
+				id={FIELDS.email}
+				placeholder="your_name@example.com"
+				required
+				autocomplete="email"
+			/>
+		</div>
+
+		<div class={styles.field}>
+			<label
+				class={styles.label}
+				for={FIELDS.subject}
+				>select the subject<span
+					class={styles.required}
+					aria-hidden="true"
+					>*</span
+				>
+			</label>
+
+			<select
+				class=`${styles.input} ${styles.select}`
+				name={FIELDS.subject}
+				id={FIELDS.subject}
+				required
+			>
+				<option
+					value=""
+					disabled
+					selected
+					>choose an option</option
+				>
+				{
+					subjectSchema.options.map((key) => (
+						<option value={key}>{SUBJECT_LABELS[key]}</option>
+					))
+				}
+			</select>
+		</div>
+
+		<div class={styles.field}>
+			<label
+				class={styles.label}
+				for={FIELDS.message}
+				>{FIELDS.message}<span
+					class={styles.required}
+					aria-hidden="true"
+					>*</span
+				>
+			</label>
+			<textarea
+				class={`${styles.textarea} ${styles.input}`}
+				name={FIELDS.message}
+				id={FIELDS.message}
+				required
+				placeholder="please, let me know how can i help you"
+				rows={4}
+			></textarea>
+		</div>
+
+		<div class={styles.check}>
+			<input
+				class={styles.checkbox}
+				type="checkbox"
+				name={FIELDS.privacy}
+				id={FIELDS.privacy}
+				required
+			/>
+			<label
+				for={FIELDS.privacy}
+				class={styles.disclaimer}
+				>by checking this box, you agree that i may reply to the message you
+				sent me.</label
+			>
+		</div>
+		<div>
+			<div data-turnstile></div>
+		</div>
+
+		<button
+			class={styles.submitBtn}
+			type="submit"
+			data-submit
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="18"
+				height="18"
+				fill="none"
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				aria-hidden="true"
+				viewBox="0 0 24 24"
+				><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"></path></svg
+			>
+			send email
+		</button>
+	</form>
+</section>
