@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import Favicons from "@seo/Favicons.astro";
+import CloudflareTurnstileHead from "@seo/CloudflareTurnstileHead.astro";
 import SiteSchema from "@seo/SiteSchema.astro";
 
 interface Props {
@@ -14,6 +15,8 @@ const { robotsFollow = "follow", robotsIndex = "index" } = Astro.props;
 <head>
 	<ClientRouter />
 	<Favicons />
+
+	<CloudflareTurnstileHead />
 
 	<link
 		rel="preload"
