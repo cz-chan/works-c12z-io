@@ -9,7 +9,8 @@ export const contactSchema = z.object({
 	subject: subjectSchema,
 	message: z.string().trim().min(1).max(600),
 	privacy: z.literal("on"),
-	company: z.string().max(0).optional(), // honeypot
+	"cf-turnstile-response": z.string().min(1, "please complete the captcha"),
+	company: z.string().optional(), // honeypot
 });
 
 export const FIELDS = contactSchema.keyof().enum;
