@@ -7,6 +7,8 @@
 .disclaimer {
 	margin-top: var(--w-space-6);
 	font-size: var(--w-text-note);
+	max-width: var(--w-content-view);
+	align-self: center;
 
 	& .email {
 		padding: 2px 4px;
