@@ -3,6 +3,8 @@ import { z } from "astro/zod";
 const OG_IMAGE = "/og-image.webp";
 const OG_IMAGE_ALT = "chema ferrandez's works";
 
+export const WORK_MAIL = "work@c12z.io";
+
 const IMAGE_SCHEMA = z
 	.object({
 		src: z.string().default(OG_IMAGE),
