@@ -1,0 +1,12 @@
+.email {
+	padding: 2px 6px;
+	background-color: var(--color-light-border);
+	color: var(--color-dark-text-dim);
+	border-radius: var(--w-space-2);
+	cursor: pointer;
+	width: fit-content;
+
+	&:active {
+		transform: scale(0.95);
+	}
+}
