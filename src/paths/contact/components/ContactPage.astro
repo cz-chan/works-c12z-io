@@ -1,6 +1,7 @@
 ---
 import styles from "@contact-path/components/contact.module.css";
 import Form from "@contact-path/components/form/Form.astro";
+import CopyEmail from "./copy-email/CopyEmail.astro";
 ---
 
 <section class={styles.section}>
@@ -10,6 +11,6 @@ import Form from "@contact-path/components/form/Form.astro";
 
 	<p class={styles.disclaimer}>
 		if you'd prefer, you can contact me on your own by clicking on the email
-		address to copy it: <button class={styles.email}>work@c12z.io </button>
+		address to copy it: <CopyEmail />
 	</p>
 </section>

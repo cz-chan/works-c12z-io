@@ -7,19 +7,6 @@
 .disclaimer {
 	margin-top: var(--w-space-6);
 	font-size: var(--w-text-note);
-	max-width: var(--w-content-view);
+	max-width: 28rem;
 	align-self: center;
-
-	& .email {
-		padding: 2px 4px;
-		background-color: var(--color-light-border);
-		color: var(--color-dark-text-dim);
-		border-radius: var(--w-space-2);
-		cursor: pointer;
-		width: fit-content;
-
-		&:active {
-			transform: scale(0.95);
-		}
-	}
 }
