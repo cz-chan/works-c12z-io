@@ -14,6 +14,7 @@ interface TurnstileOptions {
 interface Turnstile {
 	render(container: HTMLElement, options: TurnstileOptions): string;
 	remove(widgetId: string): void;
+	reset(widgetId: string): void;
 }
 
 declare global {
@@ -65,6 +66,11 @@ const onBeforeSwap = () => {
 
 	window.turnstile.remove(widgetId);
 	widgetId = undefined;
+};
+
+export const resetTurnstile = () => {
+	// the “widgetID” can only be used once; if it is retained, a 403 error is generated.
+	if (widgetId && window.turnstile) window.turnstile.reset(widgetId);
 };
 
 document.addEventListener("astro:page-load", onPageLoad);
