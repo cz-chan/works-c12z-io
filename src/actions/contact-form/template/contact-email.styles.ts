@@ -1,0 +1,60 @@
+// email clients strip <style> tags, so every rule must be inline
+export const STYLES = {
+	body: [
+		"margin:0",
+		"padding:24px",
+		"background:#f5f5f4",
+		"font-family:ui-monospace,SFMono-Regular,Menlo,monospace",
+	].join(";"),
+	card: [
+		"max-width:560px",
+		"margin:0 auto",
+		"background:#ffffff",
+		"border:1px solid #e7e5e4",
+		"border-radius:12px",
+		"overflow:hidden",
+	].join(";"),
+	header: ["padding:16px 24px", "border-bottom:1px solid #e7e5e4"].join(";"),
+	eyebrow: [
+		"margin:0",
+		"font-size:12px",
+		"letter-spacing:0.08em",
+		"text-transform:uppercase",
+		"color:#6b7280",
+	].join(";"),
+	title: ["margin:4px 0 0", "font-size:16px", "color:#111827"].join(";"),
+	content: "padding:20px 24px",
+	label: [
+		"padding:4px 12px 4px 0",
+		"color:#6b7280",
+		"font-size:13px",
+		"white-space:nowrap",
+		"vertical-align:top",
+	].join(";"),
+	value: ["padding:4px 0", "color:#111827", "font-size:13px"].join(";"),
+	quote: [
+		"margin-top:20px",
+		"padding:16px",
+		"background:#fafaf9",
+		"border-left:3px solid #111827",
+		"border-radius:4px",
+	].join(";"),
+	// pre-wrap keeps the line breaks the visitor typed without adding <br>
+	message: [
+		"margin:0",
+		"font-size:14px",
+		"line-height:1.6",
+		"color:#111827",
+		"white-space:pre-wrap",
+	].join(";"),
+	button: [
+		"display:inline-block",
+		"margin-top:20px",
+		"padding:10px 16px",
+		"background:#111827",
+		"color:#ffffff",
+		"font-size:13px",
+		"text-decoration:none",
+		"border-radius:6px",
+	].join(";"),
+} as const;
