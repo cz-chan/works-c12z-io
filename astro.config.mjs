@@ -14,14 +14,11 @@ export default defineConfig( {
   output: 'static',
   env: {
     schema: {
-      CLOUDFLARE_TURNSTILE_PUBLIC_KEY: envField.string( {
-        context: 'client',
-        access: 'public',
-      } ),
-      CLOUDFLARE_TURNSTILE_SECRET_KEY: envField.string( {
-        context: 'server',
-        access: 'secret',
-      } ),
+      CLOUDFLARE_TURNSTILE_PUBLIC_KEY: envField.string( { context: 'client', access: 'public', } ),
+      CLOUDFLARE_TURNSTILE_SECRET_KEY: envField.string( { context: 'server', access: 'secret', } ),
+      RESEND_API_KEY: envField.string( { context: 'server', access: 'secret' } ),
+      CONTACT_FROM_EMAIL: envField.string( { context: 'server', access: 'public' } ),
+      CONTACT_TO_EMAIL: envField.string( { context: 'server', access: 'public' } ),
     }
   },
   markdown: {
