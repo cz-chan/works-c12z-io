@@ -17,7 +17,7 @@
 	}
 
 	& .required {
-		color: #cd543c;
+		color: var(--color-error);
 	}
 
 	& .textarea {
@@ -62,8 +62,8 @@
 		}
 
 		&:user-invalid {
-			border-color: #cd543c;
-			box-shadow: 0 0 0 1px #cd543c;
+			border-color: var(--color-error);
+			box-shadow: 0 0 0 1px var(--color-error);
 		}
 	}
 
@@ -91,7 +91,7 @@
 			cursor: pointer;
 
 			&:user-invalid {
-				outline: 2px solid #cd543c;
+				outline: 2px solid var(--color-error);
 				outline-offset: 1px;
 			}
 		}
@@ -122,6 +122,10 @@
 		&:active {
 			transform: scale(0.95);
 		}
+	}
+
+	.status:empty {
+		display: none;
 	}
 
 	& .hpField {
