@@ -6,7 +6,7 @@ import {
 	SUBJECT_LABELS,
 	subjectSchema,
 } from "@contact-path/lib/form.schema.ts";
-import CloudflareTurnstileComponent from "@plugins/cloudflare/CloudflareTurnstile.component.astro";
+import Turnstile from "@plugins/cloudflare-turnstile/Turnstile.astro";
 ---
 
 <section class={styles.sectionForm}>
@@ -14,7 +14,7 @@ import CloudflareTurnstileComponent from "@plugins/cloudflare/CloudflareTurnstil
 		class={styles.form}
 		id="contact-form"
 		method="post"
-		action=""
+		data-astro-reload
 	>
 		<div
 			aria-hidden="true"
@@ -47,6 +47,8 @@ import CloudflareTurnstileComponent from "@plugins/cloudflare/CloudflareTurnstil
 				name={FIELDS.name}
 				placeholder="your name"
 				required
+				minlength="2"
+				maxlength="100"
 				autocomplete="given-name"
 			/>
 		</div>
@@ -121,6 +123,7 @@ import CloudflareTurnstileComponent from "@plugins/cloudflare/CloudflareTurnstil
 				id={FIELDS.message}
 				required
 				placeholder="please, let me know how can i help you"
+				maxlength="600"
 				rows={4}
 			></textarea>
 		</div>
@@ -141,7 +144,14 @@ import CloudflareTurnstileComponent from "@plugins/cloudflare/CloudflareTurnstil
 			>
 		</div>
 
-		<CloudflareTurnstileComponent />
+		<Turnstile />
+
+		<p
+			class={styles.status}
+			data-form-status
+			role="status"
+		>
+		</p>
 
 		<button
 			class={styles.submitBtn}
@@ -165,3 +175,5 @@ import CloudflareTurnstileComponent from "@plugins/cloudflare/CloudflareTurnstil
 		</button>
 	</form>
 </section>
+
+<script></script>

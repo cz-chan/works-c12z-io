@@ -1,7 +1,7 @@
 import { ActionError, defineAction } from "astro:actions";
 
 import { contactSchema } from "@contact-path/lib/form.schema.ts";
-import { verifyTurnstile } from "@plugins/cloudflare/cloudflare-turnstile.server.ts";
+import { verifyTurnstile } from "@plugins/cloudflare-turnstile/turnstile.server.ts";
 
 export const contactForm = defineAction({
 	accept: "form",

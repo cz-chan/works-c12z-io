@@ -2,8 +2,8 @@
 import { ClientRouter } from "astro:transitions";
 import Favicons from "@seo/Favicons.astro";
 
-import CloudflareTurnstileHead from "@plugins/cloudflare/CloudflareTurnstile.head.astro";
 import SiteSchema from "@seo/SiteSchema.astro";
+import TurnstileHead from "@plugins/cloudflare-turnstile/TurnstileHead.astro";
 
 interface Props {
 	robotsIndex?: "index" | "noindex";
@@ -17,7 +17,7 @@ const { robotsFollow = "follow", robotsIndex = "index" } = Astro.props;
 	<ClientRouter />
 	<Favicons />
 
-	<CloudflareTurnstileHead />
+	<TurnstileHead />
 
 	<link
 		rel="preload"
