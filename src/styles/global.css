@@ -28,6 +28,11 @@
 	--color-selection-fg: #181618;
 	--color-selection-bg: #dfc7df;
 
+	/* color errors */
+	--color-success: rgb(64, 206, 81);
+	--color-warning: rgb(234, 174, 53);
+	--color-error: rgb(201, 42, 42);
+
 	/* UNIQUE FONT */
 	--w-ff-necto: "Necto", ui-monospace, monospace;
 
