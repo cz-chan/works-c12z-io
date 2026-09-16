@@ -48,7 +48,7 @@ export const buildContactEmail = (input: ContactFormInput) => {
 		`<div style="${STYLES.card}">`,
 		`<div style="${STYLES.header}">`,
 		`<p style="${STYLES.eyebrow}">works.c12z.io</p>`,
-		`<p style="${STYLES.title}">new message from the contact form in work.c12z.io</p>`,
+		`<p style="${STYLES.title}">new message from the contact form in works.c12z.io</p>`,
 		"</div>",
 		`<div style="${STYLES.content}">`,
 		'<table role="presentation" cellpadding="0" cellspacing="0"',
