@@ -158,6 +158,10 @@ import Turnstile from "@plugins/cloudflare-turnstile/Turnstile.astro";
 			type="submit"
 			data-submit
 		>
+			<span
+				class={styles.spinner}
+				aria-hidden="true"
+			></span>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="18"
@@ -174,6 +178,27 @@ import Turnstile from "@plugins/cloudflare-turnstile/Turnstile.astro";
 			send email
 		</button>
 	</form>
+
+	<div
+		class={styles.success}
+		data-form-success
+		tabindex="-1"
+		hidden
+	>
+		<div class={styles.title}>
+			<p class={styles.successTitle}>message sent</p><span>😄</span>
+		</div>
+		<p class={styles.successText}>
+			thanks for writing. i'll get back to you soon.
+		</p>
+		<button
+			class={styles.successBtn}
+			type="button"
+			data-form-reset
+		>
+			send another message
+		</button>
+	</div>
 </section>
 
 <script>
