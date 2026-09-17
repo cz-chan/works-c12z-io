@@ -34,22 +34,26 @@ const { items, title, titleAs: Title = "h2" } = Astro.props;
 		role="list"
 	>
 		{
-			items.map((item) => (
-				<li class={styles.item}>
-					<a
-						href={item.href}
-						class={styles.entry}
-					>
-						<span class={styles.entryText}>
-							<p class={styles.company}>{item.title}</p>
-							{item.subtitle && (
-								<span class={styles.entrySubtitle}>{item.subtitle}</span>
-							)}
-						</span>
-						{item.meta && <span class={styles.entryMeta}>{item.meta}</span>}
-					</a>
-				</li>
-			))
+			items.map((item) => {
+				const { href, title, meta, subtitle } = item;
+
+				return (
+					<li class={styles.item}>
+						<a
+							href={href}
+							class={styles.entry}
+						>
+							<span class={styles.entryText}>
+								<p class={styles.company}>{title}</p>
+								{subtitle && (
+									<span class={styles.entrySubtitle}>{subtitle}</span>
+								)}
+							</span>
+							{meta && <span class={styles.entryMeta}>{meta}</span>}
+						</a>
+					</li>
+				);
+			})
 		}
 	</ul>
 </section>
