@@ -230,6 +230,7 @@ a {
 		color var(--w-duration-fast) var(--w-ease),
 		text-decoration-color var(--w-duration-fast) var(--w-ease);
 
+	&[download]::after,
 	&[href^="https"]::after {
 		content: "";
 		display: inline-block;
@@ -238,9 +239,16 @@ a {
 		margin-left: var(--w-space-1);
 		vertical-align: middle;
 		background-color: currentColor;
-		mask-image: url("/icons/go-out.svg");
 		mask-size: contain;
 		mask-repeat: no-repeat;
+	}
+
+	&[href^="https"]::after {
+		mask-image: url("/icons/go-out.svg");
+	}
+
+	&[download]::after {
+		mask-image: url("/icons/download.svg");
 	}
 
 	&:hover {
