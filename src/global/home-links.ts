@@ -10,7 +10,7 @@ export const homeLinks: NavLink[] = [
 	{
 		label: "own projects",
 		note: "things i have built",
-		href: "https://proyectos.c12z.io",
+		href: "https://c12z.io/proyectos",
 	},
 	{ label: "my context", note: "who am i", href: "/context" },
 	{ label: "do we work?", note: "send me an email", href: "/contact" },
