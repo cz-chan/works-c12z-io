@@ -1,10 +1,21 @@
 ---
-import styles from "./copy-email.module.css";
+import styles from "@contact-path/components/copy-email/copy-email.module.css";
 import { WORK_MAIL } from "@global/pages-info.ts";
 ---
 
-<button
-	data-copy-email
-	class={styles.email}
-	>{WORK_MAIL}
-</button>
+<span class={styles.wrapper}>
+	<button
+		data-copy-email
+		class={styles.email}
+		>{WORK_MAIL}</button
+	>
+	<span
+		data-copy-toast
+		class={styles.toast}
+		aria-live="polite"
+	></span>
+</span>
+
+<script>
+	import "./copy-email.client.ts";
+</script>

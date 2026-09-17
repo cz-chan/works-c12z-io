@@ -1,3 +1,36 @@
+.wrapper {
+	position: relative;
+	display: inline-block;
+}
+
+.toast {
+	padding: 2px 4px;
+	border-radius: var(--w-space-2);
+
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	opacity: 0;
+	pointer-events: none;
+	white-space: nowrap;
+	transform: translate(-50%, 0);
+
+	&[data-status] {
+		animation: riseFade 2s ease-out;
+	}
+
+	&[data-status="success"] {
+		border: 1px solid var(--color-success);
+		color: var(--color-success);
+		background-color: color-mix(in srgb, var(--color-success) 15%, white);
+	}
+	&[data-status="error"] {
+		border: 1px solid var(--color-error);
+		color: var(--color-error);
+		background-color: color-mix(in srgb, var(--color-error) 15%, white);
+	}
+}
+
 .email {
 	padding: 2px 6px;
 	background-color: var(--color-light-border);
@@ -8,5 +41,37 @@
 
 	&:active {
 		transform: scale(0.95);
+	}
+}
+
+@keyframes riseFade {
+	from {
+		opacity: 0;
+		transform: translate(-50%, 0);
+	}
+	20% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		transform: translate(-50%, -20px);
+	}
+}
+
+@keyframes fadeOnly {
+	from {
+		opacity: 0;
+	}
+	20% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.toast[data-status] {
+		animation: fadeOnly 2s ease-out;
 	}
 }
