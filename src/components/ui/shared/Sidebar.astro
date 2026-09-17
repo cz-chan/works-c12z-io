@@ -12,7 +12,8 @@ import { homeLinks } from "@global/home-links.ts";
 		>
 			<span
 				class={styles.statusDot}
-				aria-hidden="true"></span>
+				aria-hidden="true"
+			></span>
 			open to work
 		</a>
 		<p class={styles.presentation}>chema ferrández - cz</p>
@@ -33,10 +34,15 @@ import { homeLinks } from "@global/home-links.ts";
 			{
 				homeLinks.map((link) => {
 					const { href, label, note, download } = link;
+					const isExternal = href.startsWith("https");
+					const hasAttributes = isExternal
+						? { target: "_blank", rel: "noopener noreferrer" }
+						: {};
 
 					return (
 						<li class={styles.navItem}>
 							<a
+								{...hasAttributes}
 								download={download}
 								class={styles.navLink}
 								href={href}
