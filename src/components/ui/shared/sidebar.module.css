@@ -48,12 +48,12 @@
 }
 
 .navLink {
+	--icon-space: calc(var(--w-space-3) + var(--w-space-1));
 	display: block;
 	position: relative;
 	text-decoration: none;
 	width: fit-content;
 
-	/* the underline in ::before and ::after is used by the "go-out" icon for external links */
 	&::before {
 		content: "";
 		position: absolute;
@@ -66,6 +66,13 @@
 		transform: scaleX(0.5);
 		transform-origin: right;
 		transition: transform var(--w-duration-fast) var(--w-ease);
+	}
+
+	&[download]::before,
+	&[href^="https"]::before {
+		/* the line starts before the icon */
+		width: calc(100% - var(--icon-space));
+		right: var(--icon-space);
 	}
 
 	&:hover::before,

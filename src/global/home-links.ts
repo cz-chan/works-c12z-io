@@ -2,6 +2,7 @@ interface NavLink {
 	label: string;
 	note: string;
 	href: string;
+	download?: string;
 }
 
 export const homeLinks: NavLink[] = [
@@ -9,9 +10,14 @@ export const homeLinks: NavLink[] = [
 	{
 		label: "own projects",
 		note: "things i have built",
-		href: "#",
+		href: "https://proyectos.c12z.io",
 	},
 	{ label: "my context", note: "who am i", href: "/context" },
 	{ label: "do we work?", note: "send me an email", href: "/contact" },
-	{ label: "download cv", note: "this web in .pdf format", href: "#" },
+	{
+		label: "download cv",
+		note: "this web in .pdf format",
+		href: "/cv/chema-ferrandez-cv.pdf",
+		download: "chema-ferrandez-cv.pdf", // file download name
+	},
 ];

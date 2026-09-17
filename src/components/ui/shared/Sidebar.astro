@@ -22,17 +22,22 @@ import { homeLinks } from "@global/home-links.ts";
 			role="list"
 		>
 			{
-				homeLinks.map((link) => (
-					<li class={styles.navItem}>
-						<a
-							class={styles.navLink}
-							href={link.href}
-						>
-							{link.label}
-						</a>
-						<span class={styles.navNote}>{link.note}</span>
-					</li>
-				))
+				homeLinks.map((link) => {
+					const { href, label, note, download } = link;
+
+					return (
+						<li class={styles.navItem}>
+							<a
+								download={download}
+								class={styles.navLink}
+								href={href}
+							>
+								{label}
+							</a>
+							<span class={styles.navNote}>{note}</span>
+						</li>
+					);
+				})
 			}
 		</ul>
 	</nav>
