@@ -73,8 +73,8 @@ export const TOOLS: Record<ActualToolsTypes, StackToolItem> = {
 		url: "https://analytics.google.com",
 	},
 	vwo: {
-		name: "VWO",
-		url: "https://vwo.com",
+		name: "Wingify",
+		url: "https://wingify.com",
 	},
 	clarity: {
 		name: "Clarity",
