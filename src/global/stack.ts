@@ -32,7 +32,7 @@ export type ActualStackTypes = (typeof ACTUAL_STACK)[number];
 export const STACK: Record<ActualStackTypes, StackToolItem> = {
 	javascript: {
 		name: "JavaScript",
-		url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+		url: "https://www.javascript100.dev/",
 	},
 	typescript: {
 		name: "TypeScript",
