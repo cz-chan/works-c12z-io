@@ -7,7 +7,6 @@
 
 .modalBtn {
 	--icon-space: calc(var(--w-space-3) + var(--w-space-2));
-	anchor-name: --cv-btn;
 
 	display: flex;
 	align-items: center;
@@ -58,7 +57,7 @@
 	background-color: var(--color-dark-bg);
 	padding: 0.5rem;
 
-	/* fallback without anchor positioning (Safari < 26)  */
+	/* no-js / pre-hydration fallback: bottom sheet */
 	inset: auto 0 0 0;
 	margin: 0;
 	width: 100%;
@@ -99,23 +98,33 @@
 	}
 }
 
-@supports (anchor-name: --x) {
-	.dialog {
-		inset: auto;
-		position-anchor: --cv-btn;
-		position-area: left top;
-		margin-bottom: var(--w-space-4);
-		margin-left: 0.5rem; /* mobile view */
+/* download-cv.ts sets [data-anchored] and writes top/left on every open, scroll and resize. */
+.dialog[data-anchored] {
+	inset: auto;
+	top: 0;
+	left: 0;
 
-		width: max-content;
-		max-width: min(var(--w-content-view), 100vw - var(--w-space-2));
-		border-radius: var(--w-space-2);
+	width: max-content;
+	max-width: min(var(--w-content-view), 100vw - var(--w-space-4));
+	border-radius: var(--w-space-2);
 
-		&::after {
-			display: block;
-		}
+	/* --arrow-x: centre of the button, in panel coordinates. set by js */
+	&::after {
+		display: block;
+		left: var(--arrow-x, var(--w-space-5));
+		right: auto;
+		translate: -50% 50%;
+	}
+
+	/* not enough room above the button: panel sits below, arrow flips up */
+	&[data-placement="below"]::after {
+		top: 0;
+		bottom: auto;
+		translate: -50% -50%;
+		border-radius: 0 0 2px 0;
 	}
 }
+
 .downloadLink {
 	--icon-space: calc(var(--w-space-3) + var(--w-space-1));
 
@@ -151,16 +160,8 @@
 		padding: 0.5rem 1rem;
 	}
 
-	@supports (anchor-name: --x) {
-		.dialog {
-			margin-right: -6rem; /* change the dialog position for desktop/tablet/duo-mobile view */
-			width: 24rem;
-
-			&::after {
-				left: auto;
-				right: var(--w-space-5);
-			}
-		}
+	.dialog[data-anchored] {
+		width: 24rem;
 	}
 }
 

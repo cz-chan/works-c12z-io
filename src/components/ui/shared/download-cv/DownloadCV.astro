@@ -7,12 +7,14 @@ import { cvLinks } from "@global/cv-links.ts";
 <button
 	class={styles.modalBtn}
 	popovertarget="cv-panel"
+	data-cv-btn
 	>download cv
 </button>
 <div
 	id="cv-panel"
 	popover="auto"
 	class={styles.dialog}
+	data-cv-panel
 >
 	<div class={styles.comments}>
 		<span>what cv do you want to download?</span>
