@@ -1,0 +1,113 @@
+.navNote {
+	display: block;
+	color: var(--color-dark-text-dim);
+	margin-bottom: var(--w-space-3);
+	font-size: var(--w-text-note);
+}
+
+.modalBtn {
+	--icon-space: calc(var(--w-space-3) + var(--w-space-2));
+	anchor-name: --cv-btn;
+
+	display: flex;
+	align-items: center;
+	position: relative;
+	text-decoration: none;
+	width: fit-content;
+
+	&::before {
+		content: "";
+		position: absolute;
+		right: var(--icon-space);
+		bottom: 0;
+		width: calc(100% - var(--icon-space));
+		height: var(--w-rule);
+		background-color: currentColor;
+
+		transform: scaleX(0.5);
+		transform-origin: right;
+		transition: transform var(--w-duration-fast) var(--w-ease);
+	}
+
+	&::after {
+		content: "";
+		display: inline-block;
+		width: var(--w-space-4);
+		height: var(--w-space-4);
+		margin-left: var(--w-space-1);
+		vertical-align: middle;
+		background-color: currentColor;
+		mask-image: url("/icons/download.svg");
+		mask-size: contain;
+		mask-repeat: no-repeat;
+	}
+
+	&:hover::before,
+	&:focus-visible::before {
+		transform: scaleX(1);
+	}
+
+	svg {
+		margin-left: var(--w-space-1);
+	}
+}
+
+.dialog {
+	overflow: auto;
+	border: 1px solid var(--color-light-border);
+	width: max-content;
+	max-width: min(var(--w-content-view), 100vw - var(--w-space-2));
+	border-radius: var(--w-space-2);
+	background-color: var(--color-dark-bg);
+	padding: 0.5rem;
+
+	position-anchor: --cv-btn;
+	position-area: left top;
+	margin-bottom: var(--w-space-4);
+	margin-left: 0.5rem; /* mobile view */
+
+	&::backdrop {
+		background-color: color-mix(in srgb, var(--color-dark-bg) 55%, white 25%);
+		/* background-color: wheat; */
+	}
+
+	& .comments {
+		color: var(--color-dark-text);
+		display: flex;
+		flex-direction: column;
+
+		margin-bottom: var(--w-space-6);
+	}
+
+	/* triangle */
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		right: var(--w-space-5);
+		translate: 0 -50%;
+		width: var(--w-space-3);
+		height: var(--w-space-3);
+		rotate: 45deg;
+		background-color: inherit;
+		border-radius: 2px 0 0 0;
+	}
+}
+.downloadLink {
+	color: var(--color-dark-text);
+	text-decoration: none;
+}
+
+@media (min-width: 48rem) {
+	.dialog {
+		margin-right: -6rem; /* desktop/tablet/duo-mobile view */
+		width: 24rem;
+		padding: 0.5rem 1rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.modalBtn::before {
+		transition: none;
+	}
+}

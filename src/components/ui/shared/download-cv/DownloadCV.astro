@@ -1,0 +1,44 @@
+---
+import styles from "@ui/shared/download-cv/download-cv.module.css";
+
+import { cvLinks } from "@global/cv-links.ts";
+---
+
+<button
+	class={styles.modalBtn}
+	popovertarget="cv-panel"
+	>download cv
+</button>
+<div
+	id="cv-panel"
+	popover="auto"
+	class={styles.dialog}
+>
+	<div class={styles.comments}>
+		<span>what cv do you want to download?</span>
+		<span>i recomend you the large one, trust me :)</span>
+	</div>
+	{
+		cvLinks.map((cv) => {
+			const { id, download, href, label, note } = cv;
+			return (
+				<div>
+					<a
+						class={styles.downloadLink}
+						data-dowload-cv={id}
+						href={href}
+						download={download}
+					>
+						{label}
+					</a>
+					<span class={styles.navNote}>{note}</span>
+				</div>
+			);
+		})
+	}
+</div>
+<span class={styles.navNote}>this web in .pdf format</span>
+
+<script>
+	import "./download-cv.ts";
+</script>
