@@ -65,7 +65,7 @@ export const STACK_N_TOOLS: Record<ActualStackTypes, StackToolItem> = {
 		url: "https://resend.com",
 	},
 	googleAnalytics: {
-		name: "Google Analytics",
+		name: "GA4",
 		url: "https://analytics.google.com",
 	},
 	wingify: {
