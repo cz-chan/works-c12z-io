@@ -2,21 +2,7 @@ interface StackToolItem {
 	name: string;
 	url: string;
 }
-
-export const ACTUAL_TOOLS = [
-	"amplitude",
-	"ranki",
-	"resend",
-	"googleAnalytics",
-	"wingify",
-	"clarity",
-	"mixpanel",
-	"n8n",
-	"hubspot",
-] as const;
-export type ActualToolsTypes = (typeof ACTUAL_TOOLS)[number];
-
-export const ACTUAL_STACK = [
+export const ACTUAL_STACK_AND_TOOLS = [
 	"javascript",
 	"typescript",
 	"astro",
@@ -28,10 +14,21 @@ export const ACTUAL_STACK = [
 	"docker",
 	"sql",
 	"reactNative",
-] as const;
-export type ActualStackTypes = (typeof ACTUAL_STACK)[number];
+	"python",
 
-export const STACK: Record<ActualStackTypes, StackToolItem> = {
+	"amplitude",
+	"ranki",
+	"resend",
+	"googleAnalytics",
+	"wingify",
+	"clarity",
+	"mixpanel",
+	"n8n",
+	"hubspot",
+] as const;
+export type ActualStackTypes = (typeof ACTUAL_STACK_AND_TOOLS)[number];
+
+export const STACK_N_TOOLS: Record<ActualStackTypes, StackToolItem> = {
 	javascript: {
 		name: "JavaScript",
 		url: "https://www.javascript100.dev/",
@@ -55,9 +52,6 @@ export const STACK: Record<ActualStackTypes, StackToolItem> = {
 		name: "React Native",
 		url: "https://reactnative.dev",
 	},
-};
-
-export const TOOLS: Record<ActualToolsTypes, StackToolItem> = {
 	amplitude: {
 		name: "Amplitude",
 		url: "https://amplitude.com",
@@ -93,5 +87,9 @@ export const TOOLS: Record<ActualToolsTypes, StackToolItem> = {
 	hubspot: {
 		name: "Hubspot",
 		url: "https://www.hubspot.com/",
+	},
+	python: {
+		name: "Python",
+		url: "https://www.python.org/",
 	},
 };
