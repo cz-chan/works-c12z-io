@@ -1,7 +1,7 @@
 .header {
 	max-width: var(--w-content-view);
 	margin-inline: auto;
-	margin-bottom: calc(var(--w-space-7) * 1.5);
+	margin-bottom: var(--w-space-6);
 
 	text-align: center;
 	text-wrap: balance;
