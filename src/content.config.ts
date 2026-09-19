@@ -14,6 +14,7 @@ const works = defineCollection({
 		start: z.date(),
 		end: z.date().optional(),
 		where: z.string(),
+		stack: z.array(z.string()).optional(),
 		url: z.string().startsWith("https://").optional(),
 		keywords: z.array(z.string()).optional(),
 	}),
