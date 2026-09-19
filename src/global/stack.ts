@@ -8,9 +8,11 @@ export const ACTUAL_TOOLS = [
 	"ranki",
 	"resend",
 	"googleAnalytics",
-	"vwo",
+	"wingify",
 	"clarity",
 	"mixpanel",
+	"n8n",
+	"hubspot",
 ] as const;
 export type ActualToolsTypes = (typeof ACTUAL_TOOLS)[number];
 
@@ -72,7 +74,7 @@ export const TOOLS: Record<ActualToolsTypes, StackToolItem> = {
 		name: "Google Analytics",
 		url: "https://analytics.google.com",
 	},
-	vwo: {
+	wingify: {
 		name: "Wingify",
 		url: "https://wingify.com",
 	},
@@ -83,5 +85,13 @@ export const TOOLS: Record<ActualToolsTypes, StackToolItem> = {
 	mixpanel: {
 		name: "Mixpanel",
 		url: "https://mixpanel.com",
+	},
+	n8n: {
+		name: "n8n",
+		url: "https://n8n.io/",
+	},
+	hubspot: {
+		name: "Hubspot",
+		url: "https://www.hubspot.com/",
 	},
 };
