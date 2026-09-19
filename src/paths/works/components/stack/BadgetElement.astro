@@ -1,0 +1,27 @@
+---
+import styles from "@works-path/components/stack/stack.module.css";
+
+interface Props {
+	name: string;
+	url: string;
+}
+
+const { name, url } = Astro.props;
+
+export const getFavicon = (url: string, size = 32) =>
+	`https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=${size}`;
+---
+
+<div class={styles.badge}>
+	<img
+		class={styles.icon}
+		src={getFavicon(url)}
+		alt=""
+		aria-hidden="true"
+		width="16"
+		height="16"
+		loading="lazy"
+		decoding="async"
+	/>
+	<span>{name}</span>
+</div>

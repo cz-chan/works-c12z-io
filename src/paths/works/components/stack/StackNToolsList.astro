@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import styles from "@works-path/components/stack/stack.module.css";
+
+import { STACK_N_TOOLS } from "@global/stack.ts";
+
+import BadgetElement from "@works-path/components/stack/BadgetElement.astro";
+
+interface Props {
+	work: CollectionEntry<"works">;
+}
+
+const { work } = Astro.props;
+const { stackNtools = [] } = work.data;
+---
+
+<div class={styles.stackList}>
+	{
+		stackNtools.length > 0 && (
+			<ul
+				class={styles.badgeList}
+				role="list"
+			>
+				{stackNtools.map((id) => (
+					<li>
+						<BadgetElement {...STACK_N_TOOLS[id]} />
+					</li>
+				))}
+			</ul>
+		)
+	}
+</div>

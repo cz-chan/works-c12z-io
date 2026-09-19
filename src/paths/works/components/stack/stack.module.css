@@ -1,0 +1,46 @@
+.stackList {
+	margin-top: var(--w-space-1);
+	display: flex;
+	justify-content: center;
+}
+
+.badgeList {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 36rem;
+
+	flex-wrap: wrap;
+	gap: var(--w-space-2);
+	list-style: none;
+}
+
+.badge {
+	font-size: var(--w-text-note);
+
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	text-decoration: none;
+	gap: 0.4rem;
+	padding: var(--w-space-1) var(--w-space-2);
+	border: 1px solid var(--color-light-border);
+	border-radius: var(--w-space-1);
+
+	&[href^="https"]::after {
+		display: none;
+	}
+	& .icon {
+		width: 1em;
+		height: 1em;
+		display: block;
+		margin: 0;
+		border-radius: 0;
+		flex-shrink: 0;
+		filter: grayscale(0.9);
+		transition: filter var(--w-duration-fast) var(--w-ease);
+	}
+	&:hover .icon {
+		filter: grayscale(0);
+	}
+}
