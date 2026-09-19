@@ -31,7 +31,7 @@ const PAGES_SCHEMA = z.object({
 
 export const PAGES = PAGES_SCHEMA.parse({
 	home: {
-		heading: "welcome to cz's works",
+		heading: "cz's works",
 		title: "companies and projects i've been involved with",
 		description:
 			"chema ferrandez, growth product engineer. every company and freelance project i've worked on: what i built, when, from where, and what it moved.",
