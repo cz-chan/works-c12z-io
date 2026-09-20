@@ -15,19 +15,22 @@ const { work } = Astro.props;
 const { stackNtools = [] } = work.data;
 ---
 
-<div class={styles.stackList}>
-	{
-		stackNtools.length > 0 && (
-			<ul
-				class={styles.badgeList}
-				role="list"
-			>
-				{stackNtools.map((id) => (
-					<li>
-						<BadgetElement {...STACK_N_TOOLS[id]} />
-					</li>
-				))}
-			</ul>
-		)
-	}
-</div>
+<section class={styles.stackNtoolsSect}>
+	<h2>stack and tools i had used to build this project</h2>
+	<div class={styles.stackList}>
+		{
+			stackNtools.length > 0 && (
+				<ul
+					class={styles.badgeList}
+					role="list"
+				>
+					{stackNtools.map((id) => (
+						<li>
+							<BadgetElement {...STACK_N_TOOLS[id]} />
+						</li>
+					))}
+				</ul>
+			)
+		}
+	</div>
+</section>

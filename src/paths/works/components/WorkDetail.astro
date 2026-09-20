@@ -22,7 +22,11 @@ const { entry, backHref, childWorks = [] } = Astro.props;
 <section>
 	<WorkDescription work={entry} />
 
-	<ItemsList work={entry} />
-
-	{childWorks.length > 0 && <ContentList items={childWorks} />}
+	{
+		childWorks.length > 0 ? (
+			<ContentList items={childWorks} />
+		) : (
+			<ItemsList work={entry} />
+		)
+	}
 </section>

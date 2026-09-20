@@ -1,3 +1,20 @@
+.stackNtoolsSect {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	max-width: var(--w-content-view);
+	margin-inline: auto;
+	margin-top: var(--w-space-5);
+
+	h2 {
+		text-align: center;
+		font-size: var(--w-text-body);
+		text-wrap: balance;
+	}
+}
+
 .stackList {
 	margin-top: var(--w-space-1);
 	display: flex;
