@@ -101,7 +101,7 @@ body {
 }
 
 main {
-	padding: var(--w-space-6) var(--w-space-5) var(--w-space-4);
+	padding: var(--w-space-5);
 
 	display: grid;
 	grid-template-rows: auto 1fr auto;
