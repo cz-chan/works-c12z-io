@@ -16,6 +16,7 @@ export const ACTUAL_STACK_AND_TOOLS = [
 	"reactNative",
 	"python",
 	"prisma",
+	"wordpress",
 
 	"amplitude",
 	"ranki",
@@ -61,6 +62,10 @@ export const STACK_N_TOOLS: Record<ActualStackTypes, StackToolItem> = {
 	prisma: {
 		name: "prisma",
 		url: "https://www.prisma.io/",
+	},
+	wordpress: {
+		name: "wordpress",
+		url: "https://wordpress.org/",
 	},
 
 	amplitude: {
