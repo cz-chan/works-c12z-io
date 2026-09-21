@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { work } = Astro.props;
-const { role, company, where, url } = work.data;
+const { role, company, url } = work.data;
 
 const hasBody = Boolean(work.body?.trim());
 const { Content } = await render(work);
