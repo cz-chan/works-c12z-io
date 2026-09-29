@@ -7,6 +7,7 @@ import sitemap from '@astrojs/sitemap';
 import { satteri } from '@astrojs/markdown-satteri';
 
 import { hastExternalLinks } from '@plugins/markdown/hast-external-links.ts';
+import { noindexCV } from '@plugins/vercel/noindex-cv.ts';
 
 // https://astro.build/config
 export default defineConfig( {
@@ -24,7 +25,7 @@ export default defineConfig( {
   markdown: {
     processor: satteri( { hastPlugins: [ hastExternalLinks ] } ),
   },
-  integrations: [ mdx(), sitemap() ],
+  integrations: [ mdx(), sitemap(), noindexCV() ],
   adapter: vercel( {
     webAnalytics: {
       enabled: true,
