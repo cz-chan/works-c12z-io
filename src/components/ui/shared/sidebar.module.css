@@ -98,6 +98,11 @@
 	& .navItem {
 		margin-bottom: 0;
 	}
+
+	/* own full-width row on the 2-col mobile grid; no-op on the 1-col desktop list */
+	& .navItemFull {
+		grid-column: 1 / -1;
+	}
 }
 
 .navLink {
