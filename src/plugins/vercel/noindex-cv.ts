@@ -20,6 +20,12 @@ export const noindexCV = (): AstroIntegration => {
 					headers: { "X-Robots-Tag": "noindex, nofollow, noarchive" },
 					continue: true,
 				});
+				// without charset, browsers decode .md as windows-1252 and break accents
+				config.routes.unshift({
+					src: "^/cv/(.*)\\.md$",
+					headers: { "Content-Type": "text/markdown; charset=utf-8" },
+					continue: true,
+				});
 				writeFileSync(configPath, JSON.stringify(config, null, "\t"));
 			},
 		},
