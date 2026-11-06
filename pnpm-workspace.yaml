@@ -6,3 +6,6 @@ minimumReleaseAgeExclude:
   - astro@7.3.2
   - '@astrojs/mdx@8.0.1 || 8.1.3'
   - '@astrojs/internal-helpers@0.13.1'
+# @astrojs/astro2tsx pins @emnapi/core 1.x but its peer lets pnpm pick runtime 2.0 beta -> crash. remove when upstream fixes it
+overrides:
+  '@emnapi/runtime': ^1.11.3
