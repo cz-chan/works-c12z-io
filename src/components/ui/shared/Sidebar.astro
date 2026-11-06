@@ -3,6 +3,7 @@ import styles from "@ui/shared/sidebar.module.css";
 
 import { homeLinks } from "@global/home-links.ts";
 import DownloadCV from "./download-cv/DownloadCV.astro";
+import CopyMarkdownCV from "./copy-as-md/CopyMarkdownCV.astro";
 ---
 
 <header class={`${styles.sidebar} w-invert`}>
@@ -57,6 +58,9 @@ import DownloadCV from "./download-cv/DownloadCV.astro";
 			}
 			<li class={styles.navItem}>
 				<DownloadCV />
+			</li>
+			<li class={styles.navItem}>
+				<CopyMarkdownCV />
 			</li>
 		</ul>
 	</nav>

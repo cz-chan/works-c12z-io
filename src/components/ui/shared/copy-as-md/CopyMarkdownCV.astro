@@ -1,0 +1,51 @@
+---
+import base from "@ui/shared/download-cv/download-cv.module.css";
+import styles from "@ui/shared/copy-as-md/copy-md-cv.module.css";
+
+import { cvLinks } from "@global/cv-links.ts";
+---
+
+<button
+	class={`${base.modalBtn} ${styles.copyBtn}`}
+	popovertarget="cv-md-panel"
+	data-cv-md-btn
+	>copy cv as markdown
+</button>
+<div
+	id="cv-md-panel"
+	popover="auto"
+	class={base.dialog}
+	data-cv-md-panel
+>
+	<div class={base.comments}>
+		<span>which cv do you want to copy?</span>
+		<span>paste it straight into your llm or ats</span>
+	</div>
+	{
+		cvLinks.map((cv) => {
+			const { id, md, label, note } = cv;
+			return (
+				<div>
+					<button
+						type="button"
+						class={`${base.downloadLink} ${styles.copyLink}`}
+						data-copy-cv={id}
+						data-src={md}
+					>
+						{label.replace("download", "copy")}
+					</button>
+					<span class={base.navNote}>{note}</span>
+				</div>
+			);
+		})
+	}
+	<span
+		class={styles.srOnly}
+		aria-live="polite"
+		data-cv-md-status></span>
+</div>
+<span class={base.navNote}>plain text, ready for ai</span>
+
+<script>
+	import "./copy-as-md.ts";
+</script>
